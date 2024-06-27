@@ -2,12 +2,12 @@
 <html lang="en" class="light scroll-smooth group" data-layout="vertical" data-sidebar="light" data-sidebar-size="lg" data-mode="light" data-topbar="light" data-skin="default" data-navbar="sticky" data-content="fluid" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Ecommerce | StarCode - Admin & Dashboard Template</title>
+    <title>Web GIS | Dispora Kabupaten Konawe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta content="Minimal Admin & Dashboard Template" name="description">
-    <meta content="StarCode Kh" name="author">
+    <meta content="Web GIS Dispora Kabupaten Konawe" name="description">
+    <meta content="Kendariweb" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ URL::to('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ URL::to('assets/images/logogis.png') }}">
     <!-- Layout config Js -->
     <script src="{{ URL::to('assets/js/layout.js') }}"></script>
     <!-- StarCode CSS -->
@@ -21,20 +21,20 @@
     <div class="group-data-[sidebar-size=sm]:min-h-sm group-data-[sidebar-size=sm]:relative">
         <div class="app-menu w-vertical-menu bg-vertical-menu ltr:border-r rtl:border-l border-vertical-menu-border fixed bottom-0 top-0 z-[1003] transition-all duration-75 ease-linear group-data-[sidebar-size=md]:w-vertical-menu-md group-data-[sidebar-size=sm]:w-vertical-menu-sm group-data-[sidebar-size=sm]:pt-header group-data-[sidebar=dark]:bg-vertical-menu-dark group-data-[sidebar=dark]:border-vertical-menu-dark group-data-[sidebar=brand]:bg-vertical-menu-brand group-data-[sidebar=brand]:border-vertical-menu-brand group-data-[sidebar=modern]:bg-gradient-to-tr group-data-[sidebar=modern]:to-vertical-menu-to-modern group-data-[sidebar=modern]:from-vertical-menu-form-modern group-data-[layout=horizontal]:w-full group-data-[layout=horizontal]:bottom-auto group-data-[layout=horizontal]:top-header hidden md:block print:hidden group-data-[sidebar-size=sm]:absolute group-data-[sidebar=modern]:border-vertical-menu-border-modern group-data-[layout=horizontal]:dark:bg-zink-700 group-data-[layout=horizontal]:border-t group-data-[layout=horizontal]:dark:border-zink-500 group-data-[layout=horizontal]:border-r-0 group-data-[sidebar=dark]:dark:bg-zink-700 group-data-[sidebar=dark]:dark:border-zink-600 group-data-[layout=horizontal]:group-data-[navbar=scroll]:absolute group-data-[layout=horizontal]:group-data-[navbar=bordered]:top-[calc(theme('spacing.header')_+_theme('spacing.4'))] group-data-[layout=horizontal]:group-data-[navbar=bordered]:inset-x-4 group-data-[layout=horizontal]:group-data-[navbar=hidden]:top-0 group-data-[layout=horizontal]:group-data-[navbar=hidden]:h-16 group-data-[layout=horizontal]:group-data-[navbar=bordered]:w-[calc(100%_-_2rem)] group-data-[layout=horizontal]:group-data-[navbar=bordered]:[&.sticky]:top-header group-data-[layout=horizontal]:group-data-[navbar=bordered]:rounded-b-md group-data-[layout=horizontal]:shadow-md group-data-[layout=horizontal]:shadow-slate-500/10 group-data-[layout=horizontal]:dark:shadow-zink-500/10 group-data-[layout=horizontal]:opacity-0">
             <div class="flex items-center justify-center px-5 text-center h-header group-data-[layout=horizontal]:hidden group-data-[sidebar-size=sm]:fixed group-data-[sidebar-size=sm]:top-0 group-data-[sidebar-size=sm]:bg-vertical-menu group-data-[sidebar-size=sm]:group-data-[sidebar=dark]:bg-vertical-menu-dark group-data-[sidebar-size=sm]:group-data-[sidebar=brand]:bg-vertical-menu-brand group-data-[sidebar-size=sm]:group-data-[sidebar=modern]:bg-gradient-to-br group-data-[sidebar-size=sm]:group-data-[sidebar=modern]:to-vertical-menu-to-modern group-data-[sidebar-size=sm]:group-data-[sidebar=modern]:from-vertical-menu-form-modern group-data-[sidebar-size=sm]:group-data-[sidebar=modern]:bg-vertical-menu-modern group-data-[sidebar-size=sm]:z-10 group-data-[sidebar-size=sm]:w-[calc(theme('spacing.vertical-menu-sm')_-_1px)] group-data-[sidebar-size=sm]:group-data-[sidebar=dark]:dark:bg-zink-700">
-                <a href="{{ route('home') }}" class="group-data-[sidebar=dark]:hidden group-data-[sidebar=brand]:hidden group-data-[sidebar=modern]:hidden">
+                <a href="{{ route('admin') }}" class="group-data-[sidebar=dark]:hidden group-data-[sidebar=brand]:hidden group-data-[sidebar=modern]:hidden">
                     <span class="hidden group-data-[sidebar-size=sm]:block">
-                        <img src="assets/images/logo.png" alt="" class="h-6 mx-auto">
+                        <img src="{{ URL::to('assets/images/logogis.png') }}" alt="" class="h-15 mx-auto">
                     </span>
                     <span class="group-data-[sidebar-size=sm]:hidden">
-                        <img src="assets/images/logo-dark.png" alt="" class="h-6 mx-auto">
+                        <img src="{{ URL::to('assets/images/logodark.png') }}" alt="" class="h-15 mx-auto">
                     </span>
                 </a>
-                <a href="{{ route('home') }}" class="hidden group-data-[sidebar=dark]:block group-data-[sidebar=brand]:block group-data-[sidebar=modern]:block">
+                <a href="{{ route('admin') }}" class="hidden group-data-[sidebar=dark]:block group-data-[sidebar=brand]:block group-data-[sidebar=modern]:block">
                     <span class="hidden group-data-[sidebar-size=sm]:block">
-                        <img src="assets/images/logo.png" alt="" class="h-6 mx-auto">
+                        <img src="{{ URL::to('assets/images/logogis.png') }}" alt="" class="h-15 mx-auto">
                     </span>
                     <span class="group-data-[sidebar-size=sm]:hidden">
-                        <img src="assets/images/logo-light.png" alt="" class="h-6 mx-auto">
+                        <img src="{{ URL::to('assets/images/logolight.png') }}" alt="" class="h-15 mx-auto">
                     </span>
                 </a>
                 <button type="button" class="hidden p-0 float-end" id="vertical-hover">
@@ -43,7 +43,7 @@
             </div>
             <!-- Left Sidebar -->
             <div id="scrollbar" class="group-data-[sidebar-size=md]:max-h-[calc(100vh_-_theme('spacing.header')_*_1.2)] group-data-[sidebar-size=lg]:max-h-[calc(100vh_-_theme('spacing.header')_*_1.2)] group-data-[layout=horizontal]:h-56 group-data-[layout=horizontal]:md:h-auto group-data-[layout=horizontal]:overflow-auto group-data-[layout=horizontal]:md:overflow-visible group-data-[layout=horizontal]:max-w-screen-2xl group-data-[layout=horizontal]:mx-auto">
-                @include('sidebar.sidebar')
+                @include('admin.sidebar.sidebar')
                 <!-- Left Sidebar End -->
             </div>
         </div>
@@ -56,20 +56,20 @@
                     <div class="flex items-center w-full group-data-[layout=horizontal]:mx-auto group-data-[layout=horizontal]:max-w-screen-2xl navbar-header group-data-[layout=horizontal]:ltr:xl:pr-3 group-data-[layout=horizontal]:rtl:xl:pl-3">
                         <!-- LOGO -->
                         <div class="items-center justify-center hidden px-5 text-center h-header group-data-[layout=horizontal]:md:flex group-data-[layout=horizontal]:ltr::pl-0 group-data-[layout=horizontal]:rtl:pr-0">
-                            <a href="{{ route('home') }}">
+                            <a href="{{ route('admin') }}">
                                 <span class="hidden">
-                                    <img src="assets/images/logo.png" alt="" class="h-6 mx-auto">
+                                    <img src="{{ URL::to('assets/images/logogis.png') }}" alt="" class="h-10 mx-auto">
                                 </span>
                                 <span class="group-data-[topbar=dark]:hidden group-data-[topbar=brand]:hidden">
-                                    <img src="assets/images/logo-dark.png" alt="" class="h-6 mx-auto">
+                                    <img src="{{ URL::to('assets/images/logodark.png') }}" alt="" class="h-10 mx-auto">
                                 </span>
                             </a>
-                            <a href="{{ route('home') }}" class="hidden group-data-[topbar=dark]:block group-data-[topbar=brand]:block">
+                            <a href="{{ route('admin') }}" class="hidden group-data-[topbar=dark]:block group-data-[topbar=brand]:block">
                                 <span class="group-data-[topbar=dark]:hidden group-data-[topbar=brand]:hidden">
-                                    <img src="assets/images/logo.png" alt="" class="h-6 mx-auto">
+                                    <img src="{{ URL::to('assets/images/logogis.png') }}" alt="" class="h-10 mx-auto">
                                 </span>
                                 <span class="group-data-[topbar=dark]:block group-data-[topbar=brand]:block">
-                                    <img src="assets/images/logo-light.png" alt="" class="h-6 mx-auto">
+                                    <img src="{{ URL::to('assets/images/logolight.png') }}" alt="" class="h-10 mx-auto">
                                 </span>
                             </a>
                         </div>
@@ -85,49 +85,7 @@
                         </div>
         
                         <div class="flex gap-3 ms-auto">
-                            <div class="relative flex items-center dropdown h-header">
-                                <button type="button" class="inline-flex justify-center items-center p-0 text-topbar-item transition-all w-[37.5px] h-[37.5px] duration-200 ease-linear bg-topbar rounded-md dropdown-toggle btn hover:bg-topbar-item-bg-hover hover:text-topbar-item-hover group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:hover:bg-topbar-item-bg-hover-dark group-data-[topbar=dark]:hover:text-topbar-item-hover-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:hover:bg-topbar-item-bg-hover-brand group-data-[topbar=brand]:hover:text-topbar-item-hover-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:hover:bg-zink-600 group-data-[topbar=dark]:dark:text-zink-500 group-data-[topbar=dark]:dark:hover:text-zink-50" id="flagsDropdown" data-bs-toggle="dropdown">
-                                    <img src="assets/images/us.svg" alt="" id="header-lang-img" class="h-5 rounded-sm">
-                                </button>
-                                <div class="absolute z-50 hidden p-4 ltr:text-left rtl:text-right bg-white rounded-md shadow-md !top-4 dropdown-menu min-w-[10rem] flex flex-col gap-4 dark:bg-zink-600" aria-labelledby="flagsDropdown">
-                                    <a href="#!" class="flex items-center gap-3 group/items language" data-lang="en" title="English">
-                                        <img src="assets/images/us.svg" alt="" class="object-cover h-4 rounded-full">
-                                        <h6 class="transition-all duration-200 ease-linear font-15medium text- text-slate-600 dark:text-zink-200 group-hover/items:text-custom-500">English</h6>
-                                    </a>
-                                    <a href="#!" class="flex items-center gap-3 group/items language" data-lang="sp" title="Spanish">
-                                        <img src="assets/images/es.svg" alt="" class="object-cover h-4 rounded-full">
-                                        <h6 class="transition-all duration-200 ease-linear font-15medium text- text-slate-600 dark:text-zink-200 group-hover/items:text-custom-500">Spanish</h6>
-                                    </a>
-                                    <a href="#!" class="flex items-center gap-3 group/items language" data-lang="gr" title="German">
-                                        <img src="assets/images/de.svg" alt="" class="object-cover h-4 rounded-full">
-                                        <h6 class="transition-all duration-200 ease-linear font-15medium text- text-slate-600 dark:text-zink-200 group-hover/items:text-custom-500">German</h6>
-                                    </a>
-                                    <a href="#!" class="flex items-center gap-3 group/items language" data-lang="fr" title="French">
-                                        <img src="assets/images/fr.svg" alt="" class="object-cover h-4 rounded-full">
-                                        <h6 class="transition-all duration-200 ease-linear font-15medium text- text-slate-600 dark:text-zink-200 group-hover/items:text-custom-500">French</h6>
-                                    </a>
-                                    <a href="#!" class="flex items-center gap-3 group/items language" data-lang="jp" title="Japanese">
-                                        <img src="assets/images/jp.svg" alt="" class="object-cover h-4 rounded-full">
-                                        <h6 class="transition-all duration-200 ease-linear font-15medium text- text-slate-600 dark:text-zink-200 group-hover/items:text-custom-500">Japanese</h6>
-                                    </a>
-                                    <a href="#!" class="flex items-center gap-3 group/items language" data-lang="ch" title="Chinese">
-                                        <img src="assets/images/china.svg" alt="" class="object-cover h-4 rounded-full">
-                                        <h6 class="transition-all duration-200 ease-linear font-15medium text- text-slate-600 dark:text-zink-200 group-hover/items:text-custom-500">Chinese</h6>
-                                    </a>
-                                    <a href="#!" class="flex items-center gap-3 group/items language" data-lang="it" title="Italian">
-                                        <img src="assets/images/it2.svg" alt="" class="object-cover h-4 rounded-full">
-                                        <h6 class="transition-all duration-200 ease-linear font-15medium text- text-slate-600 dark:text-zink-200 group-hover/items:text-custom-500">Italian</h6>
-                                    </a>
-                                    <a href="#!" class="flex items-center gap-3 group/items language" data-lang="ru" title="Russian">
-                                        <img src="assets/images/ru2.svg" alt="" class="object-cover h-4 rounded-full">
-                                        <h6 class="transition-all duration-200 ease-linear font-15medium text- text-slate-600 dark:text-zink-200 group-hover/items:text-custom-500">Russian</h6>
-                                    </a>
-                                    <a href="#!" class="flex items-center gap-3 group/items language" data-lang="ar" title="Arabic">
-                                        <img src="assets/images/ae2.svg" alt="" class="object-cover h-4 rounded-full">
-                                        <h6 class="transition-all duration-200 ease-linear font-15medium text- text-slate-600 dark:text-zink-200 group-hover/items:text-custom-500">Arabic</h6>
-                                    </a>
-                                </div>
-                            </div>
+
         
                             <div class="relative flex items-center h-header">
                                 <button type="button" class="inline-flex relative justify-center items-center p-0 text-topbar-item transition-all w-[37.5px] h-[37.5px] duration-200 ease-linear bg-topbar rounded-md btn hover:bg-topbar-item-bg-hover hover:text-topbar-item-hover group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:hover:bg-topbar-item-bg-hover-dark group-data-[topbar=dark]:hover:text-topbar-item-hover-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:hover:bg-topbar-item-bg-hover-brand group-data-[topbar=brand]:hover:text-topbar-item-hover-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:hover:bg-zink-600 group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:hover:text-zink-50 group-data-[topbar=dark]:dark:text-zink-200 group-data-[topbar=dark]:text-topbar-item-dark" id="light-dark-mode">
@@ -135,12 +93,6 @@
                                 </button>
                             </div>
         
-                            <div class="relative flex items-center h-header">
-                                <button type="button" data-drawer-target="cartSidePenal" class="inline-flex relative justify-center items-center p-0 text-topbar-item transition-all w-[37.5px] h-[37.5px] duration-200 ease-linear bg-topbar rounded-md btn hover:bg-topbar-item-bg-hover hover:text-topbar-item-hover group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:hover:bg-topbar-item-bg-hover-dark group-data-[topbar=dark]:hover:text-topbar-item-hover-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:hover:bg-topbar-item-bg-hover-brand group-data-[topbar=brand]:hover:text-topbar-item-hover-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:hover:bg-zink-600 group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:hover:text-zink-50 group-data-[topbar=dark]:dark:text-zink-200 group-data-[topbar=dark]:text-topbar-item-dark">
-                                    <i data-lucide="shopping-cart" class="inline-block w-5 h-5 stroke-1 fill-slate-100 group-data-[topbar=dark]:fill-topbar-item-bg-hover-dark group-data-[topbar=brand]:fill-topbar-item-bg-hover-brand"></i>
-                                    <span class="absolute flex items-center justify-center w-[16px] h-[16px] text-xs text-white bg-red-400 border-white rounded-full -top-1 -right-1">3</span>
-                                </button>
-                            </div>
         
                             <div class="relative flex items-center dropdown h-header">
                                 <button type="button" class="inline-flex justify-center relative items-center p-0 text-topbar-item transition-all w-[37.5px] h-[37.5px] duration-200 ease-linear bg-topbar rounded-md dropdown-toggle btn hover:bg-topbar-item-bg-hover hover:text-topbar-item-hover group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:hover:bg-topbar-item-bg-hover-dark group-data-[topbar=dark]:hover:text-topbar-item-hover-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:hover:bg-topbar-item-bg-hover-brand group-data-[topbar=brand]:hover:text-topbar-item-hover-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:hover:bg-zink-600 group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:hover:text-zink-50 group-data-[topbar=dark]:dark:text-zink-200 group-data-[topbar=dark]:text-topbar-item-dark" id="notificationDropdown" data-bs-toggle="dropdown">
@@ -173,7 +125,7 @@
                                         <div class="flex flex-col gap-1" id="notification-list">
                                             <a href="#!" class="flex gap-3 p-4 product-item hover:bg-slate-50 dark:hover:bg-zink-500 follower">
                                                 <div class="w-10 h-10 rounded-md shrink-0 bg-slate-100">
-                                                    <img src="assets/images/avatar-3.png" alt="" class="rounded-md">
+                                                    <img src="{{ URL::to('assets/images/avatar-3.png') }}" alt="" class="rounded-md">
                                                 </div>
                                                 <div class="grow">
                                                     <h6 class="mb-1 font-medium"><b>@willie_passem</b> followed you</h6>
@@ -247,20 +199,20 @@
                             <div class="relative flex items-center dropdown h-header">
                                 <button type="button" class="inline-block p-0 transition-all duration-200 ease-linear bg-topbar rounded-full text-topbar-item dropdown-toggle btn hover:bg-topbar-item-bg-hover hover:text-topbar-item-hover group-data-[topbar=dark]:text-topbar-item-dark group-data-[topbar=dark]:bg-topbar-dark group-data-[topbar=dark]:hover:bg-topbar-item-bg-hover-dark group-data-[topbar=dark]:hover:text-topbar-item-hover-dark group-data-[topbar=brand]:bg-topbar-brand group-data-[topbar=brand]:hover:bg-topbar-item-bg-hover-brand group-data-[topbar=brand]:hover:text-topbar-item-hover-brand group-data-[topbar=dark]:dark:bg-zink-700 group-data-[topbar=dark]:dark:hover:bg-zink-600 group-data-[topbar=brand]:text-topbar-item-brand group-data-[topbar=dark]:dark:hover:text-zink-50 group-data-[topbar=dark]:dark:text-zink-200" id="dropdownMenuButton" data-bs-toggle="dropdown">
                                     <div class="bg-pink-100 rounded-full">
-                                        <img src="assets/images/profile.png" alt="" class="w-[37.5px] h-[37.5px] rounded-full">
+                                        <img src="{{ URL::to('assets/images/profile.png') }}" alt="" class="w-[37.5px] h-[37.5px] rounded-full">
                                     </div>
                                 </button>
                                 <div class="absolute z-50 hidden p-4 ltr:text-left rtl:text-right bg-white rounded-md shadow-md !top-4 dropdown-menu min-w-[14rem] dark:bg-zink-600" aria-labelledby="dropdownMenuButton">
-                                    <h6 class="mb-2 text-sm font-normal text-slate-500 dark:text-zink-300">Welcome to starcode</h6>
+                              
                                     <a href="#!" class="flex gap-3 mb-3">
                                         <div class="relative inline-block shrink-0">
                                             <div class="rounded bg-slate-100 dark:bg-zink-500">
-                                                <img src="assets/images/profile.png" alt="" class="w-12 h-12 rounded">
+                                                <img src="{{ URL::to('assets/images/profile.png') }}" alt="" class="w-12 h-12 rounded">
                                             </div>
                                             <span class="-top-1 ltr:-right-1 rtl:-left-1 absolute w-2.5 h-2.5 bg-green-400 border-2 border-white rounded-full dark:border-zink-600"></span>
                                         </div>
                                         <div>
-                                            <h6 class="mb-1 text-15">StarCode Kh</h6>
+                                            <h6 class="mb-1 text-15">{{ Auth::user()->name }}</h6>
                                             <p class="text-slate-500 dark:text-zink-300">Web Developer</p>
                                         </div>
                                     </a>
@@ -301,131 +253,7 @@
             </div>
         </header>
     
-        <div id="cartSidePenal" drawer-end="" class="fixed inset-y-0 flex flex-col w-full transition-transform duration-300 ease-in-out transform bg-white shadow dark:bg-zink-600 ltr:right-0 rtl:left-0 md:w-96 z-drawer show">
-            <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500">
-                <div class="grow">
-                    <h5 class="mb-0 text-16">Shopping Cart <span class="inline-flex items-center justify-center w-5 h-5 ml-1 text-[11px] font-medium border rounded-full text-white bg-custom-500 border-custom-500">3</span></h5>
-                </div>
-                <div class="shrink-0">
-                    <button data-drawer-close="cartSidePenal" class="transition-all duration-150 ease-linear text-slate-500 hover:text-slate-800"><i data-lucide="x" class="size-4"></i></button>
-                </div>
-            </div>
-            <div class="px-4 py-3 text-sm text-green-500 border border-transparent bg-green-50 dark:bg-green-400/20">
-                <span class="font-bold underline">starcode50</span> Coupon code applied successfully.
-            </div>
-            <div>
-                <div class="h-[calc(100vh_-_370px)] p-4 overflow-y-auto product-list">
-                    <div class="flex flex-col gap-4">
-                        <div class="flex gap-2 product">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0 dark:bg-zink-500">
-                                <img src="assets/images/img-012.png" alt="" class="h-8">
-                            </div>
-                            <div class="overflow-hidden grow">
-                                <div class="ltr:float-right rtl:float-left">
-                                    <button class="transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-red-500 dark:hover:text-red-500"><i data-lucide="x" class="size-4"></i></button>
-                                </div>
-                                <a href="#!" class="transition-all duration-200 ease-linear hover:text-custom-500">
-                                    <h6 class="mb-1 text-15">Cotton collar t-shirts for men</h6>
-                                </a>
-                                <div class="flex items-center mb-3">
-                                    <h5 class="text-base product-price"> $<span>155.32</span></h5>
-                                    <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-500 dark:text-zink-200">(Fashion)</div>
-                                </div>
-                                <div class="flex items-center justify-between gap-3">
-                                    <div class="inline-flex text-center input-step">
-                                        <button type="button" class="border w-9 h-9 leading-[15px] minus bg-white dark:bg-zink-700 dark:border-zink-500 ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="minus" class="inline-block size-4"></i></button>
-                                        <input type="number" class="w-12 text-center h-9 border-y product-quantity dark:bg-zink-700 focus:shadow-none dark:border-zink-500" value="2" min="0" max="100" readonly="">
-                                        <button type="button" class="transition-all duration-200 ease-linear bg-white border dark:bg-zink-700 dark:border-zink-500 ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="plus" class="inline-block size-4"></i></button>
-                                    </div>
-                                    <h6 class="product-line-price">310.64</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex gap-2 product">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0 dark:bg-zink-500">
-                                <img src="assets/images/img-03.png" alt="" class="h-8">
-                            </div>
-                            <div class="overflow-hidden grow">
-                                <div class="ltr:float-right rtl:float-left">
-                                    <button class="transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-red-500 dark:hover:text-red-500"><i data-lucide="x" class="size-4"></i></button>
-                                </div>
-                                <a href="#!" class="transition-all duration-200 ease-linear hover:text-custom-500">
-                                    <h6 class="mb-1 text-15">Like style travel black handbag</h6>
-                                </a>
-                                <div class="flex items-center mb-3">
-                                    <h5 class="text-base product-price"> $<span>349.95</span></h5>
-                                    <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-400 dark:text-zink-200">(Luggage)</div>
-                                </div>
-                                <div class="flex items-center justify-between gap-3">
-                                    <div class="inline-flex text-center input-step">
-                                        <button type="button" class="border w-9 h-9 leading-[15px] minus bg-white dark:bg-zink-700 dark:border-zink-500 ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="minus" class="inline-block size-4"></i></button>
-                                        <input type="number" class="w-12 text-center h-9 border-y product-quantity dark:bg-zink-700 focus:shadow-none dark:border-zink-500" value="1" min="0" max="100" readonly="">
-                                        <button type="button" class="transition-all duration-200 ease-linear bg-white border dark:bg-zink-700 dark:border-zink-500 ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="plus" class="inline-block size-4"></i></button>
-                                    </div>
-                                    <h6 class="product-line-price">349.95</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex gap-2 product">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0 dark:bg-zink-500">
-                                <img src="assets/images/img-09.png" alt="" class="h-8">
-                            </div>
-                            <div class="overflow-hidden grow">
-                                <div class="ltr:float-right rtl:float-left">
-                                    <button class="transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-red-500 dark:hover:text-red-500"><i data-lucide="x" class="size-4"></i></button>
-                                </div>
-                                <a href="#!" class="transition-all duration-200 ease-linear hover:text-custom-500">
-                                    <h6 class="mb-1 text-15">Blive Printed Men Round Neck</h6>
-                                </a>
-                                <div class="flex items-center mb-3">
-                                    <h5 class="text-base product-price">$<span>546.74</span></h5>
-                                    <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-400 dark:text-zink-200">(Fashion)</div>
-                                </div>
-                                <div class="flex items-center justify-between gap-3">
-                                    <div class="inline-flex text-center input-step">
-                                        <button type="button" class="border w-9 h-9 leading-[15px] minus bg-white dark:bg-zink-700 dark:border-zink-500 ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="minus" class="inline-block size-4"></i></button>
-                                        <input type="number" class="w-12 text-center h-9 border-y product-quantity dark:bg-zink-700 focus:shadow-none dark:border-zink-500" value="4" min="0" max="100" readonly="">
-                                        <button type="button" class="transition-all duration-200 ease-linear bg-white border dark:bg-zink-700 dark:border-zink-500 ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i data-lucide="plus" class="inline-block size-4"></i></button>
-                                    </div>
-                                    <h6 class="product-line-price end">2,186.96</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 border-t border-slate-200 dark:border-zink-500">
-        
-                    <table class="w-full mb-3 ">
-                        <tbody class="table-total">
-                            <tr>
-                                <td class="py-2">Sub Total :</td>
-                                <td class="text-right cart-subtotal">$2,847.55</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2">Discount <span class="text-muted">(starcode50)</span>:</td>
-                                <td class="text-right cart-discount">-$476.00</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2">Shipping Charge :</td>
-                                <td class="text-right cart-shipping">$89.00</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2">Estimated Tax (12.5%) : </td>
-                                <td class="text-right cart-tax">$70.62</td>
-                            </tr>
-                            <tr class="font-semibold">
-                                <td class="py-2">Total : </td>
-                                <td class="text-right cart-total">$2,531.17</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="flex items-center justify-between gap-3">
-                        <a href="apps-ecommerce-product-grid.html" class="w-full text-white btn bg-slate-500 border-slate-500 hover:text-white hover:bg-slate-600 hover:border-slate-600 focus:text-white focus:bg-slate-600 focus:border-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:border-slate-600 active:ring active:ring-slate-100 dark:ring-slate-400/10">Continue Shopping</a>
-                        <a href="apps-ecommerce-checkout.html" class="w-full text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20">Checkout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="relative min-h-screen group-data-[sidebar-size=sm]:min-h-sm">
             <!-- message -->
             {!! Toastr::message() !!}
@@ -438,11 +266,11 @@
                 <div class="group-data-[layout=horizontal]:mx-auto group-data-[layout=horizontal]:max-w-screen-2xl w-full">
                     <div class="grid items-center grid-cols-1 text-center lg:grid-cols-2 text-slate-400 dark:text-zink-200 ltr:lg:text-left rtl:lg:text-right">
                         <div>
-                            <script>document.write(new Date().getFullYear())</script> StarCode Kh
+                            Copyright © <script>document.write(new Date().getFullYear())</script> Aplikasi WebGIS Pariwisata Kabupaten Konawe
                         </div>
                         <div class="hidden lg:block">
                             <div class="ltr:text-right rtl:text-left">
-                                Design & Develop by StarCode Kh
+                                Design & Develop by Kendariweb.com
                             </div>
                         </div>
                     </div>
@@ -461,8 +289,8 @@
     <div id="customizerButton" drawer-end="" class="fixed inset-y-0 flex flex-col w-full transition-transform duration-300 ease-in-out transform bg-white shadow ltr:right-0 rtl:left-0 md:w-96 z-drawer show dark:bg-zink-600">
         <div class="flex justify-between p-4 border-b border-slate-200 dark:border-zink-500">
             <div class="grow">
-                <h5 class="mb-1 text-16">starcode Theme Customizer</h5>
-                <p class="font-normal text-slate-500 dark:text-zink-200">Choose your themes & layouts etc.</p>
+                <h5 class="mb-1 text-16">Custom Tampilan</h5>
+                <p class="font-normal text-slate-500 dark:text-zink-200">Pilih theme dan layout.</p>
             </div>
             <div class="shrink-0">
                 <button data-drawer-close="customizerButton" class="transition-all duration-150 ease-linear text-slate-500 hover:text-slate-800 dark:text-zink-200 dark:hover:text-zink-50"><i data-lucide="x" class="w-4 h-4"></i></button>
@@ -470,7 +298,7 @@
         </div>
         <div class="h-full p-6 overflow-y-auto">
             <div>
-                <h5 class="mb-3 underline capitalize text-15">Choose Layouts</h5>
+                <h5 class="mb-3 underline capitalize text-15">Pilih Layout</h5>
                 <div class="grid grid-cols-1 mb-5 gap-7 sm:grid-cols-2">
                     <div class="relative">
                         <input id="layout-one" name="dataLayout" class="absolute w-4 h-4 border rounded-full appearance-none cursor-pointer ltr:right-2 rtl:left-2 top-2 vertical-menu-btn bg-slate-100 border-slate-300 checked:bg-custom-500 checked:border-custom-500 dark:bg-zink-400 dark:border-zink-500" type="radio" value="vertical" checked="">
@@ -647,22 +475,21 @@
         </div>
         <div class="flex items-center justify-between gap-3 p-4 border-t border-slate-200 dark:border-zink-500">
             <button type="button" id="reset-layout" class="w-full transition-all duration-200 ease-linear text-slate-500 btn bg-slate-200 border-slate-200 hover:text-slate-600 hover:bg-slate-300 hover:border-slate-300 focus:text-slate-600 focus:bg-slate-300 focus:border-slate-300 focus:ring focus:ring-slate-100">Reset</button>
-            <a href="#!" class="w-full text-white transition-all duration-200 ease-linear bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100">Buy Now</a>
         </div>
     </div>
 
-    <script src='assets/libs/choices.js/public/assets/scripts/choices.min.js'></script>
-    <script src="assets/libs/%40popperjs/core/umd/popper.min.js"></script>
-    <script src="assets/libs/tippy.js/tippy-bundle.umd.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/prismjs/prism.js"></script>
-    <script src="assets/libs/lucide/umd/lucide.js"></script>
-    <script src="assets/js/starcode.bundle.js"></script>
+    <script src="{{ URL::to('assets/libs/choices.js/public/assets/scripts/choices.min.js') }}"></script>
+    <script src="{{ URL::to('assets/libs/%40popperjs/core/umd/popper.min.js') }}"></script>
+    <script src="{{ URL::to('assets/libs/tippy.js/tippy-bundle.umd.min.js') }}"></script>
+    <script src="{{ URL::to('assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ URL::to('assets/libs/prismjs/prism.js') }}"></script>
+    <script src="{{ URL::to('assets/libs/lucide/umd/lucide.js') }}"></script>
+    <script src="{{ URL::to('assets/js/starcode.bundle.js') }}"></script>
     <!--apexchart js-->
-    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="{{ URL::to('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
     <!--dashboard ecommerce init js-->
-    <script src="assets/js/pages/dashboards-ecommerce.init.js"></script>
+    <script src="{{ URL::to('assets/js/pages/dashboards-ecommerce.init.js') }}"></script>
     <!-- App js -->
-    <script src="assets/js/app.js"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
 </html>

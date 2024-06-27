@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 @section('content')
     <div class="mb-0 w-screen lg:mx-auto lg:w-[500px] card shadow-lg border-none shadow-slate-100 relative">
         <div class="!px-10 !py-12 card-body">
             <a href="#!">
-                <img src="assets/images/logo-light.png" alt="" class="hidden h-6 mx-auto dark:block">
-                <img src="assets/images/logo-dark.png" alt="" class="block h-6 mx-auto dark:hidden">
+                <img src="assets/images/logolight.png" alt="" class="hidden h-15 mx-auto dark:block">
+                <img src="assets/images/logodark.png" alt="" class="block h-15 mx-auto dark:hidden">
             </a>
 
             <div class="mt-8 text-center">
-                <h4 class="mb-1 text-custom-500 dark:text-custom-500">Welcome Back !</h4>
-                <p class="text-slate-500 dark:text-zink-200">Sign in to continue to Starcode.</p>
+                <h4 class="mb-1 text-custom-500 dark:text-custom-500">Selamat Datang !</h4>
+                <p class="text-slate-500 dark:text-zink-200">Login untuk masuk ke Aplikasi.</p>
             </div>
 
             <form action="{{ route('login') }}" class="mt-10" id="" method="POST">
@@ -35,23 +35,12 @@
                     <div id="remember-error" class="hidden mt-1 text-sm text-red-500">Please check the "Remember me" before submitting the form.</div>
                 </div>
                 <div class="mt-10">
-                    <button type="submit" class="w-full text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Sign In</button>
-                </div>
-
-                <div class="relative text-center my-9 before:absolute before:top-3 before:left-0 before:right-0 before:border-t before:border-t-slate-200 dark:before:border-t-zink-500">
-                    <h5 class="inline-block px-2 py-0.5 text-sm bg-white text-slate-500 dark:bg-zink-600 dark:text-zink-200 rounded relative">Sign In with</h5>
-                </div>
-
-                <div class="flex flex-wrap justify-center gap-2">
-                    <button type="button" class="flex items-center justify-center size-[37.5px] transition-all duration-200 ease-linear p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 active:text-white active:bg-custom-600 active:border-custom-600"><i data-lucide="facebook" class="size-4"></i></button>
-                    <button type="button" class="flex items-center justify-center size-[37.5px] transition-all duration-200 ease-linear p-0 text-white btn bg-orange-500 border-orange-500 hover:text-white hover:bg-orange-600 hover:border-orange-600 focus:text-white focus:bg-orange-600 focus:border-orange-600 active:text-white active:bg-orange-600 active:border-orange-600"><i data-lucide="mail" class="size-4"></i></button>
-                    <button type="button" class="flex items-center justify-center size-[37.5px] transition-all duration-200 ease-linear p-0 text-white btn bg-sky-500 border-sky-500 hover:text-white hover:bg-sky-600 hover:border-sky-600 focus:text-white focus:bg-sky-600 focus:border-sky-600 active:text-white active:bg-sky-600 active:border-sky-600"><i data-lucide="twitter" class="size-4"></i></button>
-                    <button type="button" class="flex items-center justify-center size-[37.5px] transition-all duration-200 ease-linear p-0 text-white btn bg-slate-500 border-slate-500 hover:text-white hover:bg-slate-600 hover:border-slate-600 focus:text-white focus:bg-slate-600 focus:border-slate-600 active:text-white active:bg-slate-600 active:border-slate-600"><i data-lucide="github" class="size-4"></i></button>
+                    <button type="submit" class="w-full text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Login</button>
                 </div>
 
                 <div class="mt-10 text-center">
-                    <p class="mb-0 text-slate-500 dark:text-zink-200">Don't have an account ?
-                        <a href="{{ route('register') }}" class="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500"> SignUp</a>
+                    <p class="mb-0 text-slate-500 dark:text-zink-200">Belum Punya Akun ?
+                        <a href="{{ route('register') }}" class="font-semibold underline transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500"> Daftar</a>
                     </p>
                 </div>
             </form>

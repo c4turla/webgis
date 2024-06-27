@@ -16,13 +16,13 @@ Route::get('/', function () {
 
 Route::group(['middleware'=>'auth'],function()
 {
-    Route::get('home',function()
+    Route::get('/admin',function()
     {
-        return view('dashboard.home');
+        return view('admin.dashboard.home');
     });
-    Route::get('home',function()
+    Route::get('/admin',function()
     {
-        return view('dashboard.home');
+        return view('admin.dashboard.home');
     });
 });
 
@@ -57,11 +57,18 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'],function()
     });
 });
 
-Route::group(['namespace' => 'App\Http\Controllers'],function()
+Route::group(['namespace' => 'App\Http\Controllers\Admin'],function()
 {
     // -------------------------- main dashboard ----------------------//
-    Route::controller(HomeController::class)->group(function () {
-        Route::get('/home', 'index')->middleware('auth')->name('home');
+    Route::controller(DashboardController::class)->group(function () {
+        Route::get('/admin', 'index')->middleware('auth')->name('admin');
+    });
+    Route::controller(SettingController::class)->group(function () {
+        Route::get('/admin/setting', 'index')->middleware('auth')->name('setting');
+        Route::post('/admin/setting', 'update')->name('settings.update');
+    });
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/admin/user', 'index')->middleware('auth')->name('user');
     });
 });
 
