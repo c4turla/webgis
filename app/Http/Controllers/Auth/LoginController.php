@@ -71,15 +71,13 @@ class LoginController extends Controller
                 $user = Auth::User();
                 Session::put('name', $user->name);
                 Session::put('email', $user->email);
-                Session::put('user_id', $user->user_id);
-                Session::put('join_date', $user->join_date);
-                Session::put('last_login', $user->join_date);
                 Session::put('phone_number', $user->phone_number);
                 Session::put('status', $user->status);
                 Session::put('role_name', $user->role_name);
                 Session::put('avatar', $user->avatar);
                 Session::put('position', $user->position);
                 Session::put('department', $user->department);
+                Session::put('last_login', $user->join_date);
 
                 $updateLastLogin = ['last_login' => $todayDate,];
                 User::where('email',$username)->update($updateLastLogin);
@@ -92,7 +90,7 @@ class LoginController extends Controller
         }catch(\Exception $e) {
             \Log::info($e);
             DB::rollback();
-            Toastr::error('Add new employee fail :)','Error');
+            Toastr::error('Pendaftaran Gagal :)','Error');
             return redirect()->back();
         }
     }
@@ -109,8 +107,6 @@ class LoginController extends Controller
         // forget login session
         $request->session()->forget('name');
         $request->session()->forget('email');
-        $request->session()->forget('user_id');
-        $request->session()->forget('join_date');
         $request->session()->forget('last_login');
         $request->session()->forget('phone_number');
         $request->session()->forget('status');

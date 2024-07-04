@@ -137,7 +137,7 @@
                                             </a>
                                             <a href="#!" class="flex gap-3 p-4 product-item hover:bg-slate-50 dark:hover:bg-zink-500 mention">
                                                 <div class="w-10 h-10 bg-yellow-100 rounded-md shrink-0">
-                                                    <img src="assets/images/avatar-5.png" alt="" class="rounded-md">
+                                                    <img src="{{ URL::to('assets/images/avatar-5.png') }}" alt="" class="rounded-md">
                                                 </div>
                                                 <div class="grow">
                                                     <h6 class="mb-1 font-medium"><b>@caroline_jessica</b> commented on your post</h6>
@@ -163,7 +163,7 @@
                                             <a href="#!" class="flex gap-3 p-4 product-item hover:bg-slate-50 dark:hover:bg-zink-500 mention">
                                                 <div class="relative shrink-0">
                                                     <div class="w-10 h-10 bg-pink-100 rounded-md">
-                                                        <img src="assets/images/avatar-7.png" alt="" class="rounded-md">
+                                                        <img src="{{ URL::to('assets/images/avatar-7.png') }}" alt="" class="rounded-md">
                                                     </div>
                                                     <div class="absolute text-orange-500 -bottom-0.5 -right-0.5 text-16">
                                                         <i class="ri-heart-fill"></i>
@@ -491,5 +491,6 @@
     <script src="{{ URL::to('assets/js/pages/dashboards-ecommerce.init.js') }}"></script>
     <!-- App js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    @yield('script')
 </body>
 </html>

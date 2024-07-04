@@ -31,32 +31,33 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="mb-4">
                 <label for="nama_aplikasi" class="block text-sm font-medium text-gray-700">Nama Aplikasi</label>
-                <input type="text" class="form-input mt-1 block w-full" id="nama_aplikasi" name="nama_aplikasi" value="{{ $settings->nama_aplikasi }}" required>
-              </div>
-              <div class="mb-4">
+                <input type="text" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 mt-1 block w-full" id="nama_aplikasi" name="nama_aplikasi" value="{{ $settings->nama_aplikasi }}" required>
+            </div>
+            <div class="mb-4">
                 <label for="deskripsi" class="block text-sm font-medium text-gray-700">Deskripsi</label>
-                <textarea class="form-input mt-1 block w-full" id="deskripsi" name="deskripsi">{{ $settings->deskripsi }}</textarea>
-              </div>
-              <div class="mb-4">
+                <textarea class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 mt-1 block w-full" id="deskripsi" name="deskripsi">{{ $settings->deskripsi }}</textarea>
+            </div>
+            <div class="mb-4">
                 <label for="nama_instansi" class="block text-sm font-medium text-gray-700">Nama Instansi</label>
-                <input type="text" class="form-input mt-1 block w-full" id="nama_instansi" name="nama_instansi" value="{{ $settings->nama_instansi }}">
-              </div>
-              <div class="mb-4">
+                <input type="text" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 mt-1 block w-full" id="nama_instansi" name="nama_instansi" value="{{ $settings->nama_instansi }}">
+            </div>
+            <div class="mb-4">
                 <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
-                <textarea class="form-input mt-1 block w-full" id="alamat" name="alamat">{{ $settings->alamat }}</textarea>
-              </div>
-              <div class="mb-4">
+                <textarea class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 mt-1 block w-full" id="alamat" name="alamat">{{ $settings->alamat }}</textarea>
+            </div>
+            <div class="mb-4">
                 <label for="no_hp" class="block text-sm font-medium text-gray-700">No HP</label>
-                <input type="text" class="form-input mt-1 block w-full" id="no_hp" name="no_hp" value="{{ $settings->no_hp }}">
-              </div>
-              <div class="mb-4">
+                <input type="text" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 mt-1 block w-full" id="no_hp" name="no_hp" value="{{ $settings->no_hp }}">
+            </div>
+            <div class="mb-4">
                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" class="form-input mt-1 block w-full" id="email" name="email" value="{{ $settings->email }}">
-              </div>
-              <div class="mb-4">
+                <input type="email" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 mt-1 block w-full" id="email" name="email" value="{{ $settings->email }}">
+            </div>
+            <div class="mb-4">
                 <label for="website" class="block text-sm font-medium text-gray-700">Website</label>
-                <input type="url" class="form-input mt-1 block w-full" id="website" name="website" value="{{ $settings->website }}">
-              </div>
+                <input type="url" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200 mt-1 block w-full" id="website" name="website" value="{{ $settings->website }}">
+            </div>
+            
             </div>
             <div class="flex items-center justify-between">
               <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">

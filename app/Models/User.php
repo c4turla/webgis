@@ -18,11 +18,8 @@ class User extends Authenticatable
      */
 
     protected $fillable = [
-        'user_id',
         'name',
         'email',
-        'join_date',
-        'last_login',
         'phone_number',
         'status',
         'role_name',
@@ -33,6 +30,18 @@ class User extends Authenticatable
         'department',
         'password',
     ];
+
+        // Fungsi untuk mendapatkan nama role
+    public function getRoleNameTextAttribute()
+        {
+            $roles = [
+                1 => 'Administrator',
+                2 => 'Operator',
+                3 => 'User',
+            ];
+    
+            return $roles[$this->role_name] ?? 'Unknown';
+        }
 
 
 
@@ -58,7 +67,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
+/* 
     protected static function boot()
     {
         parent::boot();
@@ -77,6 +86,6 @@ class User extends Authenticatable
                 $model->user_id = 'KH_' . sprintf("%04s", $nextID);
             }
         });
-    }
+    } */
 
 }

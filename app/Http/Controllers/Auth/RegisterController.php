@@ -74,18 +74,17 @@ class RegisterController extends Controller
             $register            = new User;
             $register->name      = $request->name;
             $register->email     = $request->email;
-            $register->join_date = $todayDate;
-            $register->role_name = 'User Normal';
+            $register->role_name = '3';
             $register->status    = 'Active';
             $register->password  = Hash::make($request->password);
             $register->save();
 
-            Toastr::success('Create new account successfully :)','Success');
+            Toastr::success('Registrasi Akun berhasil dibuat :)','Success');
             return redirect('login');
         } catch(\Exception $e) {
             \Log::info($e);
             DB::rollback();
-            Toastr::error('Add new employee fail :)','Error');
+            Toastr::error('Registrasi Gagal :)','Error');
             return redirect()->back();
         }
     }

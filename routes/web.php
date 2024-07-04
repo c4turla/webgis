@@ -69,6 +69,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'],function()
     });
     Route::controller(UserController::class)->group(function () {
         Route::get('/admin/user', 'index')->middleware('auth')->name('user');
+        Route::post('/admin/create', 'store')->name('user.store');;
     });
 });
 
