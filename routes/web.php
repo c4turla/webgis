@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\HomeController;
 
 /** for side bar menu active */
 function set_active($route) {
@@ -10,9 +11,7 @@ function set_active($route) {
     return Request::path() == $route ? 'active' : '';
 }
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::group(['middleware'=>'auth'],function()
 {
