@@ -1,15 +1,15 @@
 {
   "resources/css/tailwind.css": {
-    "file": "assets/tailwind-CQGos5Pn.css",
+    "file": "assets/tailwind-D65cZTD-.css",
     "src": "resources/js/tailwind.js"
   },
   "resources/js/tailwind.js": {
-    "file": "assets/tailwind-D04SJKeU.js",
+    "file": "assets/tailwind-Cv7LEnBZ.js",
     "name": "tailwind",
     "src": "resources/js/tailwind.js",
     "isEntry": true,
     "css": [
-      "assets/tailwind-CQGos5Pn.css"
+      "assets/tailwind-D65cZTD-.css"
     ]
   }
 }

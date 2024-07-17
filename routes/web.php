@@ -62,6 +62,14 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'],function()
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/admin', 'index')->middleware('auth')->name('admin');
     });
+    Route::controller(WisataController::class)->group(function () {
+        Route::get('/admin/wisata', 'index')->middleware('auth')->name('wisata');
+        Route::get('/admin/wisata/tambah', 'create')->middleware('auth')->name('wisata.add');
+        Route::post('/admin/wisata', 'store')->name('wisata.store');
+        Route::get('/admin/wisata/{id}/edit', 'edit')->name('wisata.edit');
+        Route::put('/admin/wisata/{id}', 'update')->middleware('auth')->name('wisata.update');
+    });
+
     Route::controller(SettingController::class)->group(function () {
         Route::get('/admin/setting', 'index')->middleware('auth')->name('setting');
         Route::post('/admin/setting', 'update')->name('settings.update');

@@ -174,105 +174,53 @@
                         </div>
                     </div>
                 </div><!--end col-->
+            
+                    <div class="col-span-12 card md:col-span-6 lg:col-span-3 2xl:col-span-3">
+                        <div class="text-center card-body">
+                            <div class="flex items-center justify-center mx-auto rounded-full size-14 bg-custom-100 text-custom-500 dark:bg-custom-500/20">
+                                <i data-lucide="castle"></i>
+                            </div>
+                            <h5 class="mt-4 mb-2"><span class="counter-value" data-target="236">0</span></h5>
+                            <p class="text-slate-500 dark:text-zink-200">Total Wisata</p>
+                        </div>
+                    </div><!--end col-->
+                    <div class="col-span-12 card md:col-span-6 lg:col-span-3 2xl:col-span-3">
+                        <div class="text-center card-body">
+                            <div class="flex items-center justify-center mx-auto text-purple-500 bg-purple-100 rounded-full size-14 dark:bg-purple-500/20">
+                                <i data-lucide="land-plot"></i>
+                            </div>
+                            <h5 class="mt-4 mb-2"><span class="counter-value" data-target="13461">0</span></h5>
+                            <p class="text-slate-500 dark:text-zink-200">Fasilitas Olahraga</p>
+                        </div>
+                    </div><!--end col-->
+                    <div class="col-span-12 card md:col-span-6 lg:col-span-3 2xl:col-span-3">
+                        <div class="text-center card-body">
+                            <div class="flex items-center justify-center mx-auto text-green-500 bg-green-100 rounded-full size-14 dark:bg-green-500/20">
+                                <i data-lucide="medal"></i>
+                            </div>
+                            <h5 class="mt-4 mb-2"><span class="counter-value" data-target="17150">0</span></h5>
+                            <p class="text-slate-500 dark:text-zink-200">Sarana Pemuda</p>
+                        </div>
+                    </div><!--end col-->
+                    <div class="col-span-12 card md:col-span-6 lg:col-span-3 2xl:col-span-3">
+                        <div class="text-center card-body">
+                            <div class="flex items-center justify-center mx-auto text-red-500 bg-red-100 rounded-full size-14 dark:bg-red-500/20">
+                                <i data-lucide="trophy"></i>
+                            </div>
+                            <h5 class="mt-4 mb-2"><span class="counter-value" data-target="3519">0</span></h5>
+                            <p class="text-slate-500 dark:text-zink-200">Total Event</p>
+                        </div>
+                    </div><!--end col-->
 
-                <div class="col-span-12 card md:col-span-6 lg:col-span-3 2xl:col-span-2">
-                    <div class="text-center card-body">
-                        <div class="flex items-center justify-center mx-auto rounded-full size-14 bg-custom-100 text-custom-500 dark:bg-custom-500/20">
-                            <i data-lucide="castle"></i>
-                        </div>
-                        <h5 class="mt-4 mb-2"><span class="counter-value" data-target="236">0</span></h5>
-                        <p class="text-slate-500 dark:text-zink-200">Total Wisata</p>
-                    </div>
-                </div><!--end col-->
-                <div class="col-span-12 card md:col-span-6 lg:col-span-3 2xl:col-span-2">
-                    <div class="text-center card-body">
-                        <div class="flex items-center justify-center mx-auto text-purple-500 bg-purple-100 rounded-full size-14 dark:bg-purple-500/20">
-                            <i data-lucide="land-plot"></i>
-                        </div>
-                        <h5 class="mt-4 mb-2"><span class="counter-value" data-target="13461">0</span></h5>
-                        <p class="text-slate-500 dark:text-zink-200">Fasilitas Olahraga</p>
-                    </div>
-                </div><!--end col-->
-                <div class="col-span-12 card md:col-span-6 lg:col-span-3 2xl:col-span-2">
-                    <div class="text-center card-body">
-                        <div class="flex items-center justify-center mx-auto text-green-500 bg-green-100 rounded-full size-14 dark:bg-green-500/20">
-                            <i data-lucide="medal"></i>
-                        </div>
-                        <h5 class="mt-4 mb-2"><span class="counter-value" data-target="17150">0</span></h5>
-                        <p class="text-slate-500 dark:text-zink-200">Sarana Pemuda</p>
-                    </div>
-                </div><!--end col-->
-                <div class="col-span-12 card md:col-span-6 lg:col-span-3 2xl:col-span-2">
-                    <div class="text-center card-body">
-                        <div class="flex items-center justify-center mx-auto text-red-500 bg-red-100 rounded-full size-14 dark:bg-red-500/20">
-                            <i data-lucide="trophy"></i>
-                        </div>
-                        <h5 class="mt-4 mb-2"><span class="counter-value" data-target="3519">0</span></h5>
-                        <p class="text-slate-500 dark:text-zink-200">Total Event</p>
-                    </div>
-                </div><!--end col-->
+     
+                
                 <div class="col-span-12 card 2xl:col-span-12">
                     <div class="card-body">
                         <div class="flex flex-col gap-4 mb-4 md:mb-3 md:items-center md:flex-row">
                             <h6 class="grow text-15">Sebaran Peta Wisata</h6>
                         </div>
-                        <div class="grid grid-cols-12 gap-4 mb-3">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d460848.4326707895!2d121.77131878725088!3d-3.7057871388259787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d99b7c9063c2883%3A0x3030bfbcaf771b0!2sKabupaten%20Konawe%2C%20Sulawesi%20Tenggara!5e1!3m2!1sid!2sid!4v1718938349362!5m2!1sid!2sid" width="1050" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
+                        <div id="map" class="w-full" style="height: 550px"></div>
                     </div>
-                </div><!--end col-->
-                <div class="col-span-12 2xl:col-span-4">
-                    <div class="grid grid-cols-12 gap-x-5">
-                        <div class="col-span-12 card lg:col-span-6 2xl:col-span-12">
-                            <div class="card-body">
-                                <div class="flex items-center mb-3">
-                                    <h6 class="grow text-15">Traffic Resources</h6>
-                                    <div class="relative">
-                                        <a href="#!" class="transition-all duration-300 ease-linear text-custom-500 hover:text-custom-700">View Status <i data-lucide="move-right" class="inline-block align-middle size-4 ltr:ml-1 rtl:mr-1"></i></a>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-12">
-                                    <div class="col-span-12 md:col-span-6 2xl:col-span-7">
-                                        <div id="trafficResourcesChart" class="apex-charts" data-chart-colors='["bg-sky-500", "bg-purple-500", "bg-green-500", "bg-yellow-500"]' dir="ltr"></div>
-                                    </div>
-                                    <div class="col-span-12 md:col-span-6 2xl:col-span-5">
-                                        <ul class="flex flex-col gap-3">
-                                            <li class="flex items-center gap-2">
-                                                <div class="bg-green-500 size-3 shrink-0 clip-triangle"></div>
-                                                <p class="text-green-500">Search Engine (22%)</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <div class="bg-purple-500 size-3 shrink-0 clip-triangle"></div>
-                                                <p class="text-purple-500">Referral (34%)</p>
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <div class="size-3 bg-sky-500 shrink-0 clip-triangle"></div>
-                                                <p class="text-sky-500">Direct (44%)</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--end col-->
-                        <div class="col-span-12 card lg:col-span-6 2xl:col-span-12">
-                            <div class="card-body">
-                                <div class="flex items-center mb-2">
-                                    <h5 class="grow"><span class="counter-value" data-target="1596">0</span></h5>
-                                    <span class="px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-white border-red-100 text-red-500 dark:bg-zink-700 dark:border-red-900"><i data-lucide="trending-down" class="inline-block size-3 ltr:mr-1 rtl:ml-1"></i> 6.8%</span>
-                                </div>
-                                <h6 class="mb-0">Monthly Orders Goal (20000+)</h6>
-                                <div>
-                                    <div class="flex items-center justify-between mt-5 mb-2">
-                                        <p class="text-slate-500 dark:text-zink-200">Total Orders</p>
-                                        <h6 class="mb-0 text-custom-500">85%</h6>
-                                    </div>
-                                    <div class="w-full bg-slate-200 rounded-full h-2.54 dark:bg-zink-600">
-                                        <div class="bg-custom-500 h-2.5 rounded-full" style="width: 85%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--end col-->
-                    </div><!--end grid-->
                 </div><!--end col-->
             </div><!--end grid-->
         </div>
@@ -280,3 +228,112 @@
     </div>
 <!-- End Page-content -->
 @endsection
+@push('scripts')
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src='https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/leaflet-label/dist/leaflet.label.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-mouse-position@1.2.0/src/L.Control.MousePosition.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.2/proj4.js"></script>
+<script src="https://unpkg.com/leaflet-geosearch@3.2.1/dist/bundle.min.js"></script>
+<script>
+    let map, markers = [];
+    let initialCenter = {
+        lat: -3.91717,
+        lng: 122.0837
+    };
+
+    function initMap() {
+        map = L.map('map', {
+            center: initialCenter,
+            zoom: 10
+        });
+
+        var GoogleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: 'Google Streets'
+        });
+
+        var GoogleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: 'Google Hybrid'
+        });
+
+        var GoogleSatellite = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: 'Google Satellite'
+        });
+
+        const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        });
+
+        const stadiamaps = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        });
+
+        const osm2 = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            attribution: '© Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+        });
+
+        var baseLayers = {
+            'Google Hybrid': GoogleHybrid,
+            'Google Satellite': GoogleSatellite,
+            'Google Streets': GoogleStreets,
+            'OpenStreetMap': osm,
+            'StadiaMaps': stadiamaps,
+            'OpenStreetMap 2': osm2
+        };
+
+        GoogleStreets.addTo(map);
+        L.control.layers(baseLayers).addTo(map);
+
+        initMarkers();
+    }
+
+    function initMarkers() {
+        const initialMarkers = @json($tempat);
+        console.log(initialMarkers); // Debug data
+
+        initialMarkers.forEach((data, index) => {
+            const marker = generateMarker(data, index);
+            marker.addTo(map);
+            markers.push(marker);
+        });
+    }
+
+    function generateMarker(data, index) {
+        const marker = L.marker(data.position, {
+            draggable: false
+        });
+
+        marker.bindTooltip(data.label, {
+            permanent: true,
+            className: 'marker-label',
+            direction: 'top'
+        });
+
+        marker.bindPopup(`
+            <div style="width: 250px;" class="p-1">
+                <div class="text-gray-700 text-lg">${data.label}</div>
+                <img src="${data.imageUrl}" alt="${data.label}" style="max-width: 100%; height: auto;" class="rounded-xl">
+            </div>
+        `, {
+            minWidth: 250,
+            maxWidth: 600
+        });
+
+        marker.on('click', (event) => markerClicked(event, index));
+
+        return marker;
+    }
+
+    function markerClicked(event, index) {
+        console.log(event.latlng.lat, event.latlng.lng);
+    }
+
+    initMap();
+</script>
+@endpush

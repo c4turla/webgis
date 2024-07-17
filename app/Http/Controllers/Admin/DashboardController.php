@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Tempat;
 
 use Illuminate\Http\Request;
 
@@ -24,6 +25,17 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard.home');
+        $tempat  = Tempat::all();
+        $markers = $tempat->map(function($wisata) {
+            return [
+                'position' => [
+                    'lat' => $wisata->latitude,
+                    'lng' => $wisata->longitude,
+                ],
+                'label' => $wisata->nama_tempat,
+               // 'imageUrl' => asset('storage/' . $wisata->gambar), // Asumsi gambar disimpan di storage
+            ];
+        });
+        return view('admin.dashboard.home', ['tempat' => $markers->toJson()]);
     }
 }
