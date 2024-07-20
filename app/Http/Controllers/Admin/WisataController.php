@@ -63,8 +63,8 @@ class WisataController extends Controller
             ]);
 
             // Process each file
-            if ($request->hasFile('files')) {
-                foreach ($request->file('files') as $index => $file) {
+            if ($request->hasFile('foto')) {
+                foreach ($request->file('foto') as $index => $file) {
                     // Generate a unique filename
                     $filename = time() . '_' . $file->getClientOriginalName();
 
@@ -76,7 +76,7 @@ class WisataController extends Controller
                         'id_tempat' => $wisata->id_tempat,
                         'nama_file' => $filename,
                         'deskripsi' => '',
-                        'is_utama'  => '',
+                        'is_utama'  => null,
                         'urutan'    => $index + 1,
                         'path'      => 'uploads/' . $filename,
                     ]);
