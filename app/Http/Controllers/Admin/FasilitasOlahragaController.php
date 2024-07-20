@@ -12,26 +12,27 @@ use App\Models\Foto;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-class WisataController extends Controller
+class FasilitasOlahragaController extends Controller
 {
     //
     public function index(Request $request)
     {
-        $query = Tempat::query()->where('kategori_id', 1);
+        $query = Tempat::query()->where('kategori_id', 2);
 
         if ($request->has('search')) {
             $search = $request->input('search');
-            $query->where('kategori_id', 1)
+            $query->where('kategori_id', 2)
                   ->where('nama_tempat', 'LIKE', "%{$search}%")
                   ->orWhere('deskripsi', 'LIKE', "%{$search}%");
         }
 
-        $wisatas = $query->paginate(10);
-        return view('admin.wisata.index', compact('wisatas'));
+        $folahraga = $query->paginate(10);
+        $count = $query->count();
+        return view('admin.fasilitas-olahraga.index', compact('folahraga', 'count'));
     }
 
     public function create(){
-        return view('admin.wisata.create');
+        return view('admin.fasilitas-olahraga.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -47,13 +48,13 @@ class WisataController extends Controller
 
         try {
             // Create new Tempat
-            $wisata = Tempat::create([
+            $olahraga = Tempat::create([
                 'nama_tempat'  => $request->nama_tempat,
                 'deskripsi'    => $request->deskripsi,
                 'alamat'       => $request->alamat,
                 'latitude'     => $request->latitude,
                 'longitude'    => $request->longitude,
-                'kategori_id'  => 1,
+                'kategori_id'  => 2,
                 'jam_buka'     => $request->jam_buka,
                 'jam_tutup'    => $request->jam_tutup,
                 'harga_tiket'  => $request->harga_tiket,
@@ -73,7 +74,7 @@ class WisataController extends Controller
 
                     // Save the file path to the database
                     Foto::create([
-                        'id_tempat' => $wisata->id_tempat,
+                        'id_tempat' => $olahraga->id_tempat,
                         'nama_file' => $filename,
                         'deskripsi' => '',
                         'is_utama'  => '',
@@ -97,13 +98,13 @@ class WisataController extends Controller
         }
 
         // Redirect or return response
-        return redirect()->route('wisata');
+        return redirect()->route('fasilitas-olahraga');
     }
 
     public function edit($id): View
     {
-        $wisata = Tempat::findOrFail($id);
-        return view('admin.wisata.edit', compact('wisata'));
+        $folahraga = Tempat::findOrFail($id);
+        return view('admin.fasilitas-olahraga.edit', compact('folahraga'));
     }
 
     public function update(Request $request, int $id)
@@ -114,16 +115,16 @@ class WisataController extends Controller
             'alamat' => 'required',
         ]);
 
-        $wisata = Tempat::findOrFail($id);
+        $folahraga = Tempat::findOrFail($id);
         
-        $wisata->update([
+        $folahraga->update([
             'nama_tempat'  => $request->nama_tempat,
             'deskripsi'    => $request->deskripsi,
             'alamat'       => $request->alamat,
             'latitude'     => $request->latitude,
             'longitude'    => $request->longitude,
             'longitude'    => $request->longitude,
-            'kategori_id'  => 1,
+            'kategori_id'  => 2,
             'jam_buka'     => $request->jam_buka,
             'jam_tutup'    => $request->jam_tutup,
             'harga_tiket'  => $request->harga_tiket,
@@ -136,7 +137,7 @@ class WisataController extends Controller
         Toastr::success('Data berhasil diubah :)','Success');
 
         // Redirect or return response
-        return redirect()->route('wisata');
+        return redirect()->route('fasilitas-olahraga');
 
     }
 
@@ -149,10 +150,10 @@ class WisataController extends Controller
     
         if (!$item) {
             Toastr::success('Terjadi kesalahan. Data gagal dihapus :(','error');
-            return redirect()->route('wisata');
+            return redirect()->route('fasilitas-olahraga');
         }
         Toastr::success('Data berhasil dihapus :)','Success');
-        return redirect()->route('wisata');
+        return redirect()->route('fasilitas-olahraga');
     }
 
 }

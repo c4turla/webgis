@@ -71,6 +71,15 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'],function()
         Route::delete('/admin/wisata', 'destroy')->name('wisata.destroy');
     });
 
+    Route::controller(FasilitasOlahragaController::class)->group(function () {
+        Route::get('/admin/fasilitas-olahraga', 'index')->middleware('auth')->name('fasilitas-olahraga');
+        Route::get('/admin/fasilitas-olahraga/tambah', 'create')->middleware('auth')->name('fasilitas-olahraga.add');
+        Route::post('/admin/fasilitas-olahraga', 'store')->name('fasilitas-olahraga.store');
+        Route::get('/admin/fasilitas-olahraga/{id}/edit', 'edit')->name('fasilitas-olahraga.edit');
+        Route::put('/admin/fasilitas-olahraga/{id}', 'update')->middleware('auth')->name('fasilitas-olahraga.update');
+        Route::delete('/admin/fasilitas-olahraga', 'destroy')->name('fasilitas-olahraga.destroy');
+    }); 
+
     Route::controller(SettingController::class)->group(function () {
         Route::get('/admin/setting', 'index')->middleware('auth')->name('setting');
         Route::post('/admin/setting', 'update')->name('settings.update');
