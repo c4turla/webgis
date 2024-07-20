@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta content="Web GIS Dispora Kabupaten Konawe" name="description">
     <meta content="Kendariweb" name="author">
+    <meta name="csrf-token" content="{{ csrf_token() }}">   
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ URL::to('assets/images/logogis.png') }}">
     <!-- Layout config Js -->

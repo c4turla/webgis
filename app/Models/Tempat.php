@@ -20,8 +20,8 @@ class Tempat extends Model
     {
         return $this->belongsTo(Kategori::class, 'kategori_id', 'id_kategori');
     }
-
-    public function foto(): HasMany
+    
+    public function foto()
     {
         return $this->hasMany(Foto::class, 'id_tempat', 'id_tempat');
     }

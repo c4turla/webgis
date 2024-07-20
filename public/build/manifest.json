@@ -5,7 +5,7 @@
     "isEntry": true
   },
   "resources/css/tailwind.css": {
-    "file": "assets/tailwind-Dw-wuboI.css",
+    "file": "assets/tailwind-2f_V8NJt.css",
     "src": "resources/js/tailwind.js"
   },
   "resources/js/map.js": {
@@ -15,12 +15,12 @@
     "isEntry": true
   },
   "resources/js/tailwind.js": {
-    "file": "assets/tailwind--kpMikNV.js",
+    "file": "assets/tailwind-B4XYgBSB.js",
     "name": "tailwind",
     "src": "resources/js/tailwind.js",
     "isEntry": true,
     "css": [
-      "assets/tailwind-Dw-wuboI.css"
+      "assets/tailwind-2f_V8NJt.css"
     ]
   }
 }

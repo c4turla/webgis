@@ -62,6 +62,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'],function()
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/admin', 'index')->middleware('auth')->name('admin');
     });
+    Route::controller(FotoController::class)->group(function () {
+        Route::delete('/admin/foto/{id}', 'destroy')->middleware('auth')->name('foto.destroy');
+        Route::post('/admin/foto/{id}/is-utama', 'updateIsUtama')->middleware('auth')->name('foto.updateIsUtama');
+    });
     Route::controller(WisataController::class)->group(function () {
         Route::get('/admin/wisata', 'index')->middleware('auth')->name('wisata');
         Route::get('/admin/wisata/tambah', 'create')->middleware('auth')->name('wisata.add');
