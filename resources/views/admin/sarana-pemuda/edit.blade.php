@@ -1,4 +1,5 @@
 @extends('admin.layouts.master')
+
 @section('content')
 <div
     class="group-data-[sidebar-size=lg]:ltr:md:ml-vertical-menu group-data-[sidebar-size=lg]:rtl:md:mr-vertical-menu group-data-[sidebar-size=md]:ltr:ml-vertical-menu-md group-data-[sidebar-size=md]:rtl:mr-vertical-menu-md group-data-[sidebar-size=sm]:ltr:ml-vertical-menu-sm group-data-[sidebar-size=sm]:rtl:mr-vertical-menu-sm pt-[calc(theme('spacing.header')_*_1)] pb-[calc(theme('spacing.header')_*_0.8)] px-4 group-data-[navbar=bordered]:pt-[calc(theme('spacing.header')_*_1.3)] group-data-[navbar=hidden]:pt-0 group-data-[layout=horizontal]:mx-auto group-data-[layout=horizontal]:max-w-screen-2xl group-data-[layout=horizontal]:px-0 group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:ltr:md:ml-auto group-data-[layout=horizontal]:group-data-[sidebar-size=lg]:rtl:md:mr-auto group-data-[layout=horizontal]:md:pt-[calc(theme('spacing.header')_*_1.6)] group-data-[layout=horizontal]:px-3 group-data-[layout=horizontal]:group-data-[navbar=hidden]:pt-[calc(theme('spacing.header')_*_0.9)]">
@@ -6,7 +7,7 @@
 
         <div class="flex flex-col gap-2 py-4 md:flex-row md:items-center print:hidden">
             <div class="grow">
-                <h5 class="text-16">Edit Tempat sarana pemuda</h5>
+                <h5 class="text-16">Edit Tempat Sarana Pemuda</h5>
             </div>
             <ul class="flex items-center gap-2 text-sm font-normal shrink-0">
                 <li
@@ -14,7 +15,7 @@
                     <a href="#!" class="text-slate-400 dark:text-zink-200">Data Lokasi</a>
                 </li>
                 <li class="text-slate-700 dark:text-zink-100">
-                    Edit Tempat sarana pemuda
+                    Edit Tempat Sarana Pemuda
                 </li>
             </ul>
         </div>
@@ -24,7 +25,7 @@
                     <div class="card-body">
                         <h6 class="mb-4 text-15">Edit Lokasi</h6>
 
-                        <form action="{{ route('sarana-pemuda.update', $spemuda->id_tempat) }}" method="POST"
+                        <form action="{{ route('sarana-pemuda.update',$spemuda->id_tempat) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
@@ -42,7 +43,7 @@
                                         class="inline-block mb-2 text-base font-medium">Kategori</label>
                                     <input type="text" id="kategori"
                                         class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                        placeholder="Kategori" value="Tempat sarana pemuda" disabled="">
+                                        placeholder="Kategori" value="Tempat Sarana Pemuda" disabled="">
                                     <p class="mt-1 text-sm text-slate-400 dark:text-zink-200">Kategori dipilih secara
                                         otomatis</p>
                                 </div>
@@ -50,7 +51,7 @@
                                     <label for="alamat" class="inline-block mb-2 text-base font-medium">Alamat</label>
                                     <input type="text" id="alamat" name="alamat"
                                         class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                        placeholder="Alamat sarana pemuda" value="{{ $spemuda->alamat }}" required="">
+                                        placeholder="Alamat Sarana Pemuda" value="{{ $spemuda->alamat }}" required="">
                                     <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
                                         Please provide a valid email address.
                                     </p>
@@ -133,69 +134,67 @@
                                 </div>
                                 <div class="lg:col-span-2 xl:col-span-12">
                                     <label for="peta" class="inline-block mb-2 text-base font-medium">Lokasi Tempat
-                                        sarana pemuda</label>
+                                        Sarana Pemuda</label>
                                     <div id="map" class="w-full" style="height: 450px;"> </div>
 
                                 </div>
 
-                                <div class="lg:col-span-2 xl:col-span-12">
-                                    <label for="foto" class="inline-block mb-2 text-base font-medium">Foto Tempat
-                                        sarana pemuda</label>
-                                    <div
-                                        class="flex items-center justify-center bg-white border border-dashed rounded-md cursor-pointer dropzone border-slate-300 dark:bg-zink-700 dark:border-zink-500 dropzone2">
-                                        <div class="fallback">
-                                            <input name="foto" type="file" multiple="multiple">
-                                        </div>
-                                        <div class="w-full py-5 text-lg text-center dz-message needsclick">
-                                            <div class="mb-3">
-                                                <i data-lucide="upload-cloud"
-                                                    class="block mx-auto size-12 text-slate-500 fill-slate-200 dark:text-zink-200 dark:fill-zink-500"></i>
-                                            </div>
-
-                                            <h5 class="mb-0 font-normal text-slate-500 dark:text-zink-200 text-15">Drag
-                                                and drop your product images or <a href="#!">browse</a> your product
-                                                images</h5>
-                                        </div>
-                                    </div>
-
-                                    <ul class="flex flex-wrap mb-0 gap-x-5" id="dropzone-preview2">
-                                        <li class="mt-5" id="dropzone-preview-list2">
-                                            <!-- This is used as the file preview template -->
-                                            <div class="border rounded border-slate-200 dark:border-zink-500">
-                                                <div class="p-2 text-center">
-                                                    <div>
-                                                        <div
-                                                            class="p-2 mx-auto rounded-md size-14 bg-slate-100 dark:bg-zink-600">
-                                                            <img data-dz-thumbnail=""
-                                                                class="block w-full h-full rounded-md"
-                                                                src="data:image/png;base64,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"
-                                                                alt="Dropzone-Image">
-                                                        </div>
-                                                    </div>
-                                                    <div class="pt-3">
-                                                        <h5 class="mb-1 text-15" data-dz-name="">&nbsp;</h5>
-                                                        <p class="mb-0 text-slate-500 dark:text-zink-200"
-                                                            data-dz-size=""></p>
-                                                        <strong class="error text-danger"
-                                                            data-dz-errormessage=""></strong>
-                                                    </div>
-                                                    <div class="mt-2">
-                                                        <button data-dz-remove=""
-                                                            class="px-2 py-1.5 text-xs text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20">Delete</button>
-                                                    </div>
+                                <div class="col-span-12">
+                                    <label class="inline-block mb-2 text-base font-medium">Foto Tempat</label>
+                                    <!-- Container with grid layout -->
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                        @foreach($spemuda->foto as $foto)
+                                        <div class="relative flex flex-col rounded-md border-2 {{ $foto->is_utama ? 'border-sky-500' : 'border-gray-200' }} border-dashed bg-white text-gray-900 transition-all duration-100 ease-linear sm:h-auto p-1 w-full max-w-xs">
+                                            <a class="flex flex-col no-underline">
+                                                <div class="relative p-1 flex justify-center items-center overflow-hidden">
+                                                    <img src="{{ asset('storage/' . $foto->path) }}" alt="{{$foto->id_foto}}" class="w-full h-64 rounded-md object-cover filter grayscale-50 transition-all duration-300 ease-in-out hover:scale-110 hover:grayscale-0">
                                                 </div>
+                                            </a>
+                                            <div class="absolute top-1 left-1 z-10 bg-sky-400 py-1 px-2 rounded">
+                                                <label class="flex items-center space-x-2">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        {{ $foto->is_utama ? 'checked' : '' }} 
+                                                        onclick="updateIsUtama('{{ $foto->id_foto }}')" 
+                                                        class="form-checkbox h-5 w-5 text-sky-500 dark:text-sky-500"
+                                                    >
+                                                    <span class="text-white dark:text-gray-200">
+                                                        Utama
+                                                    </span>
+                                                </label>
                                             </div>
-                                        </li>
-                                    </ul>
+                                            <div class="absolute top-1 right-1 z-10">
+                                                <button 
+                                                    type="button" 
+                                                    class="flex items-center justify-center transition-all duration-200 ease-linear rounded-md size-8 remove-item-btn bg-red-100 text-red-500 hover:text-red-900 hover:bg-red-200 dark:bg-zink-600 dark:text-zink-200 dark:hover:bg-red-500/20 dark:hover:text-red-500"
+                                                    data-id="{{ $foto->id_foto }}"
+                                                    onclick="showDeleteModal(this)"
+                                                >
+                                                    <i data-lucide="trash-2" class="size-4"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                                <div class="rounded-lg shadow-lg col-span-12 bg-white py-6 border-dashed  border-2 border-slate-500">
+                                    <div class="flex flex-col items-center justify-center border-3 border-dotted border-gray-400 rounded-md">
+                                            <h4 class="text-lg font-normal text-gray-800">Upload File Gambar Disini</h4>
+                                        <p class="text-xs text-gray-400">Files Supported: PNG, JPG, JPEG</p>
+                                        <input type="file" name="foto[]" hidden accept=".png,.jpg,.jpeg" id="fileID" multiple>
+                                        <a type="button" id="uploadButton"  class="text-white cursor-pointer bg-slate-400 border-slate-500 btn hover:text-white hover:bg-slate-600 hover:border-slate-600 focus:text-white mt-2 focus:bg-slate-600 focus:border-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:border-slate-600 active:ring active:ring-slate-100 dark:ring-slate-400/10 transition-colors">Pilih Gambar</a>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <div id="preview" class="mt-4 flex flex-wrap gap-4"></div>
+                                    </div>
                                 </div>
                             </div>
                             <!--end grid-->
-                            <div class="flex justify-end gap-2 mt-4">
-                                <button type="reset"
-                                    class="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Reset</button>
+                            <div class="flex justify-end gap-2 mt-4 ">
                                 <button type="submit"
                                     class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Simpan
-                                    Tempat sarana pemuda</button>
+                                    Tempat Sarana Pemuda</button>
                                 <a type="button" href="{{ route('sarana-pemuda') }}"
                                     class="text-white bg-green-500 border-green-500 btn hover:text-white hover:bg-green-600 hover:border-green-600 focus:text-white focus:bg-green-600 focus:border-green-600 focus:ring focus:ring-green-100 active:text-white active:bg-green-600 active:border-green-600 active:ring active:ring-green-100 dark:ring-green-400/10">Kembali</a>
                             </div>
@@ -208,6 +207,25 @@
         </div>
     </div>
 </div>
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="fixed inset-0 flex items-center justify-center z-50 hidden mx-6">
+    <div class="modal-overlay absolute inset-0 bg-gray-900 opacity-50"></div>
+    <div class="modal-container bg-white dark:bg-zink-800 md:w-1/3 mx-4 md:mx-auto rounded shadow-lg z-50 overflow-y-auto px-6">
+        <div class="modal-body py-4 text-center">
+            <h2 class="text-lg font-bold mb-4">Konfirmasi Hapus</h2>
+            <p class="text-gray-600 dark:text-zink-400">Apakah anda yakin menghapus foto ini?</p>
+            <div class="flex justify-center gap-4 mt-4">
+                <form id="deleteForm" method="POST" class="inline-block">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn bg-red-500 text-white hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700">Hapus</button>
+                </form>
+                <button type="button" class="btn bg-gray-300 text-gray-700 hover:bg-gray-400 dark:bg-zink-600 dark:text-zink-100 dark:hover:bg-zink-700 cancel-btn">Batal</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 @push('scripts')
 <script src="{{ URL::to('assets/libs/dropzone/dropzone-min.js') }}"></script>
@@ -226,7 +244,7 @@
         }).addTo(map);
 
         // Tambahkan marker
-        var nama = @json($spemuda->nama_tempat ?? 'Tempat sarana pemuda!');
+        var nama = @json($spemuda->nama_tempat ?? 'Tempat Sarana Pemuda!');
         var marker = L.marker([lat, lng], { draggable: true }).addTo(map)
                 .bindPopup(`<b>${nama}</b>`).openPopup();
 
@@ -250,5 +268,65 @@
         document.getElementById('latitude').value = initialLatLng.lat;
         document.getElementById('longitude').value = initialLatLng.lng;
     });
+
+    function showDeleteModal(button) {
+        const fotoId = button.getAttribute('data-id');
+        const modal = document.getElementById('deleteModal');
+        modal.classList.remove('hidden');
+
+        const deleteForm = modal.querySelector('#deleteForm');
+        deleteForm.action = `{{ route('foto.destroy', '') }}/${fotoId}`;
+
+        const cancelButton = modal.querySelector('.cancel-btn');
+        cancelButton.onclick = function() {
+            modal.classList.add('hidden');
+        };
+    }
+    function updateIsUtama(fotoId) {
+        let isChecked = event.target.checked ? 1 : null;
+        
+        fetch(`/admin/foto/${fotoId}/is-utama`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({
+                is_utama: isChecked
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            window.location.reload(); 
+        })
+        .catch(error => {
+            window.location.reload(); 
+        });
+    }
+
+    document.getElementById('uploadButton').addEventListener('click', function() {
+        document.getElementById('fileID').click();
+    });
+
+    document.getElementById('fileID').addEventListener('change', function(event) {
+        const files = event.target.files;
+        const previewContainer = document.getElementById('preview');
+        previewContainer.innerHTML = ''; 
+
+        for (const file of files) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.className = 'w-24 h-24 object-cover border rounded-md'; 
+                previewContainer.appendChild(img);
+            }
+
+            reader.readAsDataURL(file);
+        }
+    });
 </script>
+
+
 @endpush

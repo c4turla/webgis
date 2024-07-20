@@ -102,7 +102,7 @@ class SaranaPemudaController extends Controller
 
     public function edit($id): View
     {
-        $spemuda = Tempat::findOrFail($id);
+        $spemuda = Tempat::with('foto')->findOrFail($id);
         return view('admin.sarana-pemuda.edit', compact('spemuda'));
     }
 
@@ -113,27 +113,59 @@ class SaranaPemudaController extends Controller
             'deskripsi' => 'required',
             'alamat' => 'required',
         ]);
+        DB::beginTransaction();
 
-        $spemuda = Tempat::findOrFail($id);
+        $sarana = Tempat::findOrFail($id);
         
-        $spemuda->update([
-            'nama_tempat'  => $request->nama_tempat,
-            'deskripsi'    => $request->deskripsi,
-            'alamat'       => $request->alamat,
-            'latitude'     => $request->latitude,
-            'longitude'    => $request->longitude,
-            'longitude'    => $request->longitude,
-            'kategori_id'  => 3,
-            'jam_buka'     => $request->jam_buka,
-            'jam_tutup'    => $request->jam_tutup,
-            'harga_tiket'  => $request->harga_tiket,
-            'fasilitas'    => $request->fasilitas,
-            'kontak'       => $request->kontak,
-            'status'       => $request->status
-        ]);
+        try {
+            $sarana->update([
+                'nama_tempat'  => $request->nama_tempat,
+                'deskripsi'    => $request->deskripsi,
+                'alamat'       => $request->alamat,
+                'latitude'     => $request->latitude,
+                'longitude'    => $request->longitude,
+                'longitude'    => $request->longitude,
+                'kategori_id'  => 3,
+                'jam_buka'     => $request->jam_buka,
+                'jam_tutup'    => $request->jam_tutup,
+                'harga_tiket'  => $request->harga_tiket,
+                'fasilitas'    => $request->fasilitas,
+                'kontak'       => $request->kontak,
+                'status'       => $request->status
+            ]);
+            // Process each file
+            if ($request->hasFile('foto')) {
+                foreach ($request->file('foto') as $index => $file) {
+                    // Generate a unique filename
+                    $filename = time() . '_' . $file->getClientOriginalName();
 
+                    // Store the file in the 'uploads' directory
+                    $file->storeAs('uploads', $filename, 'public');
 
-        Toastr::success('Data berhasil diubah :)','Success');
+                    // Save the file path to the database
+                    $fotoInput = Foto::create([
+                        'id_tempat' => $sarana->id_tempat,
+                        'nama_file' => $filename,
+                        'deskripsi' => '',
+                        'is_utama'  => null,
+                        'urutan'    => $index + 1,
+                        'path'      => 'uploads/' . $filename,
+                    ]);
+                }
+            }
+
+            // Commit the transaction
+            DB::commit();
+
+            Toastr::success('Data berhasil diubah :)','Success');
+
+        } catch (\Exception $e) {
+            // Rollback the transaction
+            DB::rollBack();
+
+            Toastr::error('Terjadi kesalahan, data tidak dapat diubah :(', 'Error');
+            return redirect()->back()->withInput();
+        }
 
         // Redirect or return response
         return redirect()->route('sarana-pemuda');
