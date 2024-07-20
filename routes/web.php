@@ -80,6 +80,16 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'],function()
         Route::delete('/admin/fasilitas-olahraga', 'destroy')->name('fasilitas-olahraga.destroy');
     }); 
 
+
+    Route::controller(SaranaPemudaController::class)->group(function () {
+        Route::get('/admin/sarana-pemuda', 'index')->middleware('auth')->name('sarana-pemuda');
+        Route::get('/admin/sarana-pemuda/tambah', 'create')->middleware('auth')->name('sarana-pemuda.add');
+        Route::post('/admin/sarana-pemuda', 'store')->name('sarana-pemuda.store');
+        Route::get('/admin/sarana-pemuda/{id}/edit', 'edit')->name('sarana-pemuda.edit');
+        Route::put('/admin/sarana-pemuda/{id}', 'update')->middleware('auth')->name('sarana-pemuda.update');
+        Route::delete('/admin/sarana-pemuda', 'destroy')->name('sarana-pemuda.destroy');
+    }); 
+
     Route::controller(SettingController::class)->group(function () {
         Route::get('/admin/setting', 'index')->middleware('auth')->name('setting');
         Route::post('/admin/setting', 'update')->name('settings.update');

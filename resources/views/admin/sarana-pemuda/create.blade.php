@@ -6,14 +6,14 @@
 
         <div class="flex flex-col gap-2 py-4 md:flex-row md:items-center print:hidden">
             <div class="grow">
-                <h5 class="text-16">Tambah Tempat Fasilitas Olahraga</h5>
+                <h5 class="text-16">Tambah Tempat Sarana Pemuda</h5>
             </div>
             <ul class="flex items-center gap-2 text-sm font-normal shrink-0">
                 <li class="relative before:content-['\ea54'] before:font-remix ltr:before:-right-1 rtl:before:-left-1  before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:text-slate-400 dark:text-zink-200">
                     <a href="#!" class="text-slate-400 dark:text-zink-200">Data Lokasi</a>
                 </li>
                 <li class="text-slate-700 dark:text-zink-100">
-                    Tambah Tempat Fasilitas Olahraga
+                    Tambah Tempat Sarana Pemuda
                 </li>
             </ul>
         </div>
@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <h6 class="mb-4 text-15">Tambah Lokasi</h6>
 
-                        <form action="{{ route('fasilitas-olahraga.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('sarana-pemuda.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 xl:grid-cols-12">
                                 <div class="xl:col-span-6">
@@ -39,7 +39,7 @@
                                         class="inline-block mb-2 text-base font-medium">Kategori</label>
                                     <input type="text" id="kategori"
                                         class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                        placeholder="Kategori" value="Fasilitas Olahraga" disabled="">
+                                        placeholder="Kategori" value="Sarana Pemuda" disabled="">
                                     <p class="mt-1 text-sm text-slate-400 dark:text-zink-200">Kategori dipilih secara otomatis</p>
                                 </div>
                                 <div class="xl:col-span-12">
@@ -47,7 +47,7 @@
                                         class="inline-block mb-2 text-base font-medium">Alamat</label>
                                     <input type="text" id="alamat" name="alamat"
                                         class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                        placeholder="Alamat Fasilitas Olahraga" >
+                                        placeholder="Alamat sarana pemuda" >
                                 </div>
                                 <!--end col-->
                                 <div class="lg:col-span-2 xl:col-span-12">
@@ -125,13 +125,13 @@
                                         placeholder="Longitude" >
                                 </div>
                                 <div class="lg:col-span-2 xl:col-span-12">
-                                    <label for="peta" class="inline-block mb-2 text-base font-medium">Lokasi Tempat Fasilitas Olahraga</label>
+                                    <label for="peta" class="inline-block mb-2 text-base font-medium">Lokasi Tempat sarana pemuda</label>
                                     <div id="map" class="w-full" style="height: 450px;"> </div>
 
                                 </div>
 
                                 <div class="lg:col-span-2 xl:col-span-12">
-                                    <label for="foto" class="inline-block mb-2 text-base font-medium">Foto Tempat Fasilitas Olahraga</label>
+                                    <label for="foto" class="inline-block mb-2 text-base font-medium">Foto Tempat sarana pemuda</label>
                                     <div class="flex items-center justify-center bg-white border border-dashed rounded-md cursor-pointer dropzone border-slate-300 dark:bg-zink-700 dark:border-zink-500 dropzone2">
                                         <div class="fallback">
                                             <input name="foto" type="file" multiple="multiple">
@@ -174,8 +174,8 @@
                                 <button type="reset"
                                     class="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-700 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10">Reset</button>
                                 <button type="submit"
-                                    class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Simpan Tempat</button>
-                                <a type="button" href="{{ route('fasilitas-olahraga') }}"
+                                    class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Simpan Tempat sarana pemuda</button>
+                                <a type="button" href="{{ route('sarana-pemuda') }}"
                                     class="text-white bg-green-500 border-green-500 btn hover:text-white hover:bg-green-600 hover:border-green-600 focus:text-white focus:bg-green-600 focus:border-green-600 focus:ring focus:ring-green-100 active:text-white active:bg-green-600 active:border-green-600 active:ring active:ring-green-100 dark:ring-green-400/10">Kembali</a>
                             </div>
                         </form>
@@ -200,7 +200,7 @@
         }).addTo(map);
 
         var marker = L.marker([-3.8087, 122.3060], { draggable: true }).addTo(map)
-            .bindPopup('<b>Tempat Fasilitas Olahraga!</b>').openPopup();
+            .bindPopup('<b>Tempat sarana pemuda!</b>').openPopup();
 
         // Update input fields when the marker is dragged
         marker.on('dragend', function (e) {
