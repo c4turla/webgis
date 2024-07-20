@@ -1,0 +1,93 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pantai Kampa",
+                "image": "https://lh5.googleusercontent.com/p/AF1QipOEPXVvE4bMoDercpPuzOPyZ3oSf3Cl20hoMWh-=w408-h306-k-no"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [123.019891, -3.9820891]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Desa Labengki",
+                "image": "https://lh5.googleusercontent.com/p/AF1QipMDOZ2MO4XZrBLS91yEILH-z1R59zCNJ_9sKPdJ=w408-h272-k-no"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [122.4223203, -3.4499466]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Puncak Ahuawali",
+                "image": "https://lh5.googleusercontent.com/p/AF1QipNzfOOEn7JnYKIMEVc3MB3uQnHLzwKFy-UzUM1P=w408-h306-k-no"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [122.1928687, -3.9565649]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Air Terjun Moramo",
+                "image": "https://lh5.googleusercontent.com/p/AF1QipMxv_UyHx7mXr3GMzUXWdD_ayCRHeZbjusjT6LV=w114-h114-n-k-no"  
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [122.615, -3.905]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pulau Labengki",
+                "image": "https://dinaspariwisata.konaweutarakab.go.id/destination/detail/pulau-labengki"  
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [122.500, -3.450]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pantai Puwatu",
+                "image": "data:image/jpeg;base64,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"  
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [122.680, -3.927]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Taman Nasional Rawa Aopa",
+                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcP4O1Vsr8MGyJXuwiMCBEVUAT3U5rLRu-MUkXBNrHNNMrA4hh71JZ&usqp=CAE&s"  
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [122.610, -3.970]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Kampung Nelayan",
+                "image": "https://example.com/image-kampung-nelayan.jpg"  
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [122.700, -3.950]
+            }
+        }
+    ]
+}

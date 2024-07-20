@@ -142,6 +142,17 @@ export default {
       current: 'currentColor',
       black: '#000',
       white: '#fff',
+      primary: {
+        100: '#cdd2d4',
+        200: '#b4bcbf',
+        300: '#9ba5a9',
+        400: '#828f94',
+        500: '#69797f',
+        600: '#506269',
+        700: '#374c54',
+        800: '#1e363f',
+        900: '#06202a',
+      },
       slate: {
         50: '#f8fafc',
         100: '#f1f5f9',

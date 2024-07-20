@@ -14,10 +14,11 @@
         "postcss": "^8.4.39",
         "sass": "^1.56.1",
         "tailwindcss": "^3.4.4",
-        "vite": "^5.3.3"
+        "vite": "^5.3.4"
     },
     "dependencies": {
         "alpinejs": "^3.14.1",
-        "leaflet-label": "^0.2.1-0"
+        "leaflet-label": "^0.2.1-0",
+        "ol": "^9.2.4"
     }
 }

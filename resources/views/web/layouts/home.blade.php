@@ -14,7 +14,10 @@
     <link rel='stylesheet' href='https://unpkg.com/leaflet@1.8.0/dist/leaflet.css' crossorigin='' />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-mouse-position@1.0.1/L.Control.MousePosition.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.2.1/dist/geosearch.css" />
-    
+
+    @stack('styles')
+    @stack('scripts')
+    @vite(['resources/css/map.css', 'resources/js/map.js'])
     @vite('resources/css/tailwind.css')
     <style>
         .text-center {
@@ -26,7 +29,7 @@
             overflow: hidden; 
         }
         .nav {
-            width: 0px; 
+            width: 300px; 
             border-right: 1px solid #ccc;
             overflow-y: auto;
             transition: width 0.3s ease; 
@@ -41,7 +44,44 @@
             width: 100%;
             height: calc(100vh - 6.4rem); 
             position: relative;
-        } 
+        }   
+        .map:-webkit-full-screen {
+            height: 100%;
+            margin: 0;
+        }
+        .map:fullscreen {
+            height: 100%;
+        }
+        .map .ol-rotate {
+            top: 3em;
+        }
+        @keyframes spinner {
+            to {
+            transform: rotate(360deg);
+            }
+        }
+        .ol-zoom,
+        .ol-rotate,
+        .ol-overviewmap,
+        .ol-full-screen {
+            visibility: hidden;
+        }
+
+        .spinner:after {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            margin-top: -20px;
+            margin-left: -20px;
+            border-radius: 50%;
+            border: 5px solid rgba(180, 180, 180, 0.6);
+            border-top-color: rgba(0, 0, 0, 0.6);
+            animation: spinner 0.6s linear infinite;
+        }
         .marker-label {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 5px 10px;
@@ -100,12 +140,12 @@
         }
     </style>
 </head>
-<body class="bg-background">
+<body class="bg-primary-900">
     @include('web.components.nav-header')
     <!-- Main container for sidebar and content -->
     <div class="main-container">
         <!-- Sidebar navigation -->
-         @include('web.components.nav-left')
+         <!-- @include('web.components.nav-left') -->
         <!-- Main content -->
         <div class="main-content">
             @yield('content')

@@ -68,6 +68,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'],function()
         Route::post('/admin/wisata', 'store')->name('wisata.store');
         Route::get('/admin/wisata/{id}/edit', 'edit')->name('wisata.edit');
         Route::put('/admin/wisata/{id}', 'update')->middleware('auth')->name('wisata.update');
+        Route::delete('/admin/wisata', 'destroy')->name('wisata.destroy');
     });
 
     Route::controller(SettingController::class)->group(function () {
@@ -76,7 +77,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'],function()
     });
     Route::controller(UserController::class)->group(function () {
         Route::get('/admin/user', 'index')->middleware('auth')->name('user');
-        Route::post('/admin/create', 'store')->name('user.store');;
+        Route::post('/admin/create', 'store')->name('user.store');
     });
 });
 

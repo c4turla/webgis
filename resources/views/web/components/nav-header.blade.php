@@ -1,4 +1,4 @@
-<nav class="flex flex-row py-4 px-6 justify-between items-center bg-background">
+<nav class="flex flex-row py-4 px-6 justify-between items-center bg-primary-900">
     <img src="assets/images/logolight.png" alt="Logo" class="h-14 w-auto">
     
     <!-- Hamburger Menu for Mobile -->
@@ -16,22 +16,22 @@
     
     <!-- Navigation Links -->
     <div class='flex flex-grow justify-evenly max-w-xl hidden sm:flex' id="nav-links">
-        <div class="flex flex-col items-center cursor-pointer group w-12 sm:w-20 text-gray-500 hover:text-white">
+        <a href="/" class="flex flex-col items-center cursor-pointer group w-12 sm:w-20 text-gray-500 hover:text-white">
             <i data-lucide="home" class="h-10 mb-1 group-hover:animate-bounce" style="color: white;"></i>
-            <a class="tracking-widest font-semibold">BERANDA</a>
-        </div>
-        <div class="flex flex-col items-center cursor-pointer group w-12 sm:w-20 text-gray-500 hover:text-white">
+            <p class="tracking-widest font-semibold">BERANDA</p>
+        </a>
+        <a href="/" class="flex flex-col items-center cursor-pointer group w-12 sm:w-20 text-gray-500 hover:text-white">
             <i data-lucide="headphones" class="h-10 mb-1 group-hover:animate-bounce" style="color: white;"></i>
-            <a class=" tracking-widest font-semibold">PENGADUAN</a>
-        </div>
-        <div class="flex flex-col items-center cursor-pointer group w-12 sm:w-20 text-gray-500 hover:text-white">
+            <p class=" tracking-widest font-semibold">PENGADUAN</p>
+        </a>
+        <a href="/" class="flex flex-col items-center cursor-pointer group w-12 sm:w-20 text-gray-500 hover:text-white">
             <i data-lucide="book-open-text" class="h-10 mb-1 group-hover:animate-bounce" style="color: white;"></i>
             <p class=" tracking-widest font-semibold">PANDUAN</p>
-        </div>
-        <div class="flex flex-col items-center cursor-pointer group w-12 sm:w-20 text-gray-500 hover:text-white">
+        </a>
+        <a href="/" class="flex flex-col items-center cursor-pointer group w-12 sm:w-20 text-gray-500 hover:text-white">
             <i data-lucide="message-circle" class="h-10 mb-1 group-hover:animate-bounce" style="color: white;"></i>
             <p class=" tracking-widest font-semibold">FAQ</p>
-        </div>
+        </a>
     </div>
 </nav>
 <!-- Mobile Navigation Links -->

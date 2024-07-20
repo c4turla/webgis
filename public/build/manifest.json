@@ -1,15 +1,26 @@
 {
+  "resources/css/map.css": {
+    "file": "assets/map-Cwa7s3FD.css",
+    "src": "resources/css/map.css",
+    "isEntry": true
+  },
   "resources/css/tailwind.css": {
-    "file": "assets/tailwind-D65cZTD-.css",
+    "file": "assets/tailwind-Dw-wuboI.css",
     "src": "resources/js/tailwind.js"
   },
+  "resources/js/map.js": {
+    "file": "assets/map-JF5DG2rR.js",
+    "name": "map",
+    "src": "resources/js/map.js",
+    "isEntry": true
+  },
   "resources/js/tailwind.js": {
-    "file": "assets/tailwind-Cv7LEnBZ.js",
+    "file": "assets/tailwind--kpMikNV.js",
     "name": "tailwind",
     "src": "resources/js/tailwind.js",
     "isEntry": true,
     "css": [
-      "assets/tailwind-D65cZTD-.css"
+      "assets/tailwind-Dw-wuboI.css"
     ]
   }
 }

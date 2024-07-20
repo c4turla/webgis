@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class HomeController extends Controller
 {
@@ -20,7 +21,12 @@ class HomeController extends Controller
             ]
         ];
 
-        return view('web.home-content', compact('initialMarkers'));
+        // return view('web.home-content', compact('initialMarkers'));
+        // Get the content of the geojson file
+        $data = File::get(resource_path('geojson/monuments.geojson'));
+
+        // Pass the geojson data to the view
+        return view('web.home-content', ['data' => $data, 'initialMarkers' => $initialMarkers ]);
     }
 }
 
