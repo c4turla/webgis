@@ -15,7 +15,6 @@
     <link rel='stylesheet' href='https://unpkg.com/leaflet@1.8.0/dist/leaflet.css' crossorigin='' />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-mouse-position@1.0.1/L.Control.MousePosition.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.2.1/dist/geosearch.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
     @stack('styles')
@@ -142,18 +141,18 @@
             margin : 10px 0 0 0;
         }
         .custom-mouse-position {
-        position: absolute;
-        bottom: 7em;
-        left: 1em;
-        padding: 0.5em;
-        background: rgba(0, 60, 136, 0.7);
-        color: white;
-        font-family: 'Arial';
-        font-size: 12px;
+            position: absolute;
+            bottom: 2em;
+            left: 1em;
+            padding: 0.5em;
+            background: rgba(0, 60, 136, 0.7);
+            color: white;
+            font-family: 'Arial';
+            font-size: 12px;
         }
     </style>
 </head>
-<body class="bg-primary-900">
+<body>
     @include('web.components.nav-header')
     <!-- Main container for sidebar and content -->
     <div class="main-container">

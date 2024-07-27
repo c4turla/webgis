@@ -13,7 +13,9 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         // Get list of places with their related photos
-        $getList = Tempat::with('foto')->whereIn('kategori_id', [1, 2, 3])->get();
+        $query = Tempat::with('foto');
+        $getList = $query->get();
+
         $Kategori = Kategori::get()->toArray();
         // Format the data as required
         $formattedData = [
@@ -26,7 +28,9 @@ class HomeController extends Controller
                     "properties" => [
                         "name" => $tempat->nama_tempat,
                         "image" => $mainPhoto ? asset('storage/' . $mainPhoto->path) : null,
-                        "alamat" => $tempat->alamat,
+                        "kontak" => $tempat->kontak ? $tempat->kontak : " - ",
+                        "waktu" => $tempat->jam_buka. " - " .$tempat->jam_tutup ,
+                        "kategori" => $tempat->kategori_id ,
                     ],
                     "geometry" => [
                         "type" => "Point",
@@ -43,9 +47,15 @@ class HomeController extends Controller
 
     public function getLokasiByKategori($kategoriId)
     {
-        $getList = Tempat::with('foto')
-            ->where('kategori_id', $kategoriId)
-            ->get();
+        // Start building the query
+        $query = Tempat::with('foto');
+        
+        // Apply the where clause only if kategoriId is not null or an empty string
+        if ($kategoriId !== '0') {
+            $query->where('kategori_id', $kategoriId);
+        }
+        
+        $getList = $query->get();
     
         $formattedData = [
             "type" => "FeatureCollection",
@@ -56,7 +66,9 @@ class HomeController extends Controller
                     "properties" => [
                         "name" => $tempat->nama_tempat,
                         "image" => $mainPhoto ? asset('storage/' . $mainPhoto->path) : null,
-                        "alamat" => $tempat->alamat,
+                        "kontak" => $tempat->kontak ? $tempat->kontak : " - ",
+                        "waktu" => $tempat->jam_buka. " - " .$tempat->jam_tutup ,
+                        "kategori" => $tempat->kategori_id ,
                     ],
                     "geometry" => [
                         "type" => "Point",
@@ -71,5 +83,6 @@ class HomeController extends Controller
     
         return response()->json($formattedData);
     }
+    
 }
 

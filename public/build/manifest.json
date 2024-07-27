@@ -5,22 +5,22 @@
     "isEntry": true
   },
   "resources/css/tailwind.css": {
-    "file": "assets/tailwind-DO3Ww2u5.css",
+    "file": "assets/tailwind--XjODXSz.css",
     "src": "resources/js/tailwind.js"
   },
   "resources/js/map.js": {
-    "file": "assets/map-DYGl9iq9.js",
+    "file": "assets/map-BKWGzMdN.js",
     "name": "map",
     "src": "resources/js/map.js",
     "isEntry": true
   },
   "resources/js/tailwind.js": {
-    "file": "assets/tailwind-CE-ZUV9u.js",
+    "file": "assets/tailwind-BnoREESM.js",
     "name": "tailwind",
     "src": "resources/js/tailwind.js",
     "isEntry": true,
     "css": [
-      "assets/tailwind-DO3Ww2u5.css"
+      "assets/tailwind--XjODXSz.css"
     ]
   }
 }
