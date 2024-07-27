@@ -4,29 +4,72 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use App\Models\Tempat; 
+use App\Models\Kategori; 
 
 class HomeController extends Controller
 {
-    public function index()
+   
+    public function index(Request $request)
     {
-        $initialMarkers = [
-            [
-                'position' => [
-                    'lat' => -3.91717,
-                    'lng' => 122.08823
-                ],
-                'draggable' => true,
-                'label' => 'Agra Wisata',
-                'imageUrl' => 'https://shopee.co.id/inspirasi-shopee/wp-content/uploads/2022/06/mpGDXVHoSzKsqkWsopmjWg_thumb_470.webp' 
-            ]
+        // Get list of places with their related photos
+        $getList = Tempat::with('foto')->whereIn('kategori_id', [1, 2, 3])->get();
+        $Kategori = Kategori::get()->toArray();
+        // Format the data as required
+        $formattedData = [
+            "type" => "FeatureCollection",
+            "features" => $getList->map(function ($tempat) {
+                // Find the main photo where is_utama is not null
+                $mainPhoto = $tempat->foto->firstWhere('is_utama', '!=', null);
+                return [
+                    "type" => "Feature",
+                    "properties" => [
+                        "name" => $tempat->nama_tempat,
+                        "image" => $mainPhoto ? asset('storage/' . $mainPhoto->path) : null,
+                        "alamat" => $tempat->alamat,
+                    ],
+                    "geometry" => [
+                        "type" => "Point",
+                        "coordinates" => [
+                            (float)$tempat->longitude,
+                            (float)$tempat->latitude
+                        ]
+                    ]
+                ];
+            })->toArray()
         ];
+        return view('web.home-content', ['data' => $formattedData, 'kategori' =>  $Kategori ]);
+    }
 
-        // return view('web.home-content', compact('initialMarkers'));
-        // Get the content of the geojson file
-        $data = File::get(resource_path('geojson/monuments.geojson'));
-
-        // Pass the geojson data to the view
-        return view('web.home-content', ['data' => $data, 'initialMarkers' => $initialMarkers ]);
+    public function getLokasiByKategori($kategoriId)
+    {
+        $getList = Tempat::with('foto')
+            ->where('kategori_id', $kategoriId)
+            ->get();
+    
+        $formattedData = [
+            "type" => "FeatureCollection",
+            "features" => $getList->map(function ($tempat) {
+                $mainPhoto = $tempat->foto->firstWhere('is_utama', '!=', null);
+                return [
+                    "type" => "Feature",
+                    "properties" => [
+                        "name" => $tempat->nama_tempat,
+                        "image" => $mainPhoto ? asset('storage/' . $mainPhoto->path) : null,
+                        "alamat" => $tempat->alamat,
+                    ],
+                    "geometry" => [
+                        "type" => "Point",
+                        "coordinates" => [
+                            (float)$tempat->longitude,
+                            (float)$tempat->latitude
+                        ]
+                    ]
+                ];
+            })->toArray()
+        ];
+    
+        return response()->json($formattedData);
     }
 }
 

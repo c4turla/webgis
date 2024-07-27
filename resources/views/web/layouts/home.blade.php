@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta content="Aplikasi WebGIS Pariwisata" name="description">
     <meta content="Kendariweb" name="author">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ URL::to('assets/images/logogis.png') }}">
     
@@ -14,6 +15,8 @@
     <link rel='stylesheet' href='https://unpkg.com/leaflet@1.8.0/dist/leaflet.css' crossorigin='' />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-mouse-position@1.0.1/L.Control.MousePosition.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.2.1/dist/geosearch.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
     @stack('styles')
     @stack('scripts')
@@ -137,6 +140,16 @@
         }
         .leaflet-popup .leaflet-popup-content {
             margin : 10px 0 0 0;
+        }
+        .custom-mouse-position {
+        position: absolute;
+        bottom: 7em;
+        left: 1em;
+        padding: 0.5em;
+        background: rgba(0, 60, 136, 0.7);
+        color: white;
+        font-family: 'Arial';
+        font-size: 12px;
         }
     </style>
 </head>

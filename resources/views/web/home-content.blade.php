@@ -34,50 +34,54 @@
             class="absolute right-0 top-0 left-2 bottom-2 z-10 max-w-sm rounded-md border border-slate-300 bg-white bg-opacity-50 shadow-sm">
             <div class="absolute inset-1 rounded-md bg-white bg-opacity-75 p-2">
                 <div class="flex items-start justify-between">
-                    <h3 class="text-lg font-medium text-slate-700">Legend</h3>
-                    <button x-on:click.prevent="legendOpened = false"
-                        class="text-2xl font-black text-slate-400 transition hover:text-[#3369A1] focus:text-[#3369A1] focus:outline-none">&times;</button>
+                    <h3 class="tracking-widest font-semibold text-lg">Pengaturan Map</h3>
+                    <button x-on:click.prevent="legendOpened = false"  class="text-2xl font-black text-slate-400 transition hover:text-[#3369A1] focus:text-[#3369A1] focus:outline-none">&times;</button>
                 </div>
-                <!-- <ul class="mt-2 space-y-1 rounded-md border border-slate-300 bg-white p-2">
-                    <template x-for="(layer, index) in map.getAllLayers().reverse()" :key="index">
-                        <li class="flex items-center px-2 py-1">
-                            <div x-id="['legend-range']" class="w-full">
-                                <label x-bind:for="$id('legend-range')" class="flex items-center">
-                                    <span class="text-sm text-slate-600" x-text="layer.get('label')"></span>
-                                </label>
-                                <div class="mt-1 text-sm text-slate-600">
-                                    <input class="w-full accent-[#3369A1]"
-                                            type="range"
-                                            min="0"
-                                            max="1"
-                                            step="0.01"
-                                            x-bind:id="$id('legend-range')"
-                                            x-bind:value="layer.getOpacity()"
-                                            x-on:change="layer.setOpacity(Number($event.target.value))">
-                                </div>
-                            </div>
-                        </li>
-                    </template>
-                </ul> -->
+                <div class="flex flex-col gap-2 mt-6">
+                    <label class="tracking-widest font-semibold">Lokasi</label>
+                    <select id="kategori-select" class="text-slate-700 text-sm tracking-widest font-semibold py-2 px-4 text-lg border-none shadow-sm appearance-button outline-none bg-slate-100">
+                        <option value="">Semua</option>
+                        @foreach ($kategori as $item)
+                            <option value="{{ $item['id_kategori'] }}">{{ $item['nama_kategori'] }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <ul>
-                    <template x-for="(layer, index) in map.getAllLayers().reverse()" :key="index">
-                        <li class="flex items-center px-2 py-1">
-                            <div x-id="['legend-checkbox']">
-                                <label x-bind:for="$id('legend-checkbox')" class="flex items-center">
-                                    <input type="checkbox" x-bind:checked="layer.getVisible()"
-                                        x-bind:id="$id('legend-checkbox')"
-                                        x-on:change="layer.setVisible(!layer.getVisible())"
-                                        class="rounded border-slate-300 text-[#3369A1] shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                                    <span class="ml-2 text-sm text-slate-600" x-text="layer.get('label')"></span>
-                                </label>
-                                <template x-if="layer.get('label') === 'Monuments' && layer.getVisible()">
-                                    <div class="mt-2 ml-6 text-sm text-slate-600">
+                    <!-- Filter layers to show only those with the label 'Monuments' -->
+                    <template x-for="(layer, index) in map.getAllLayers().reverse().filter(layer => layer.get('label') === 'Monuments')" :key="index">
+                        <li class="flex items-center px-2 py-1 w-full">
+                                <template x-if="layer.getVisible()" class="w-full">
+                                    <div class="mt-2 px-2 text-sm text-slate-600 w-full">
                                         <template x-for="(feature, index) in layer.getSource().getFeatures()"
                                             :key="index">
-                                            <a href="#" :title="'Go to '  feature.get('name')"
-                                                x-text="feature.get('name')" x-on:click.prevent="gotoFeature(feature)"
-                                                class="block hover:underline hover:text-slate-800 focus:outline-none focus:underline focus:text-slate-800 transition">
-                                            </a>
+                                            <div class="flex flex-row bg-black rounded-l-lg shadow-sm transition-transform duration-300 hover:-translate-y-2 w-full my-2">
+                                                <div class="overflow-hidden transition-transform duration-300 transform items-center justify-center">   
+                                                    <div class="relative w-20 h-20">
+                                                        <img :src="feature.get('image')" alt='' class="absolute inset-0 w-full h-full object-cover rounded-l-lg transition-transform duration-300 transform">
+                                                    </div>
+                                                </div>
+                                                <div class="text-gray-600 flex-col py-2 px-4 gap-1  bg-gradient-to-r from-white to-slate-200 w-full">
+                                                    <h1 class="font-semibold text-sm text-black truncate">
+                                                        <a href="#" :title="'Go to ' + feature.get('images')"
+                                                            x-text="feature.get('name')" 
+                                                            x-on:click.prevent="gotoFeature(feature)"
+                                                            class="block hover:underline hover:text-slate-800 focus:outline-none focus:underline focus:text-slate-800 transition">
+                                                        </a>
+                                                    </h1>
+                                                    <div class="flex items-center space-x-2">
+                                                        <i class="fas fa-location-pin text-gray-400"></i>
+                                                        <div x-text="truncate(feature.get('alamat'), 50)"
+                                                            class="block text-gray-600 hover:underline hover:text-slate-800 focus:outline-none focus:underline focus:text-slate-800 transition">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center space-x-2">
+                                                        <i class="fas fa-location-pin text-gray-400"></i>
+                                                        <div x-text="truncate(feature.get('alamat'), 50)"
+                                                            class="block text-gray-600 hover:underline hover:text-slate-800 focus:outline-none focus:underline focus:text-slate-800 transition">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </template>
                                     </div>
                                 </template>
@@ -85,6 +89,27 @@
                         </li>
                     </template>
                 </ul>
+                <div class="flex flex-col gap-2 mt-6">
+                    <label class="tracking-widest font-semibold">MAP</label>
+                </div>
+                <div x-data="mapData()">
+                    <ul>
+                        <template x-for="(layer, index) in  map.getAllLayers().reverse().filter(layer => layer.get('label') !== 'Monuments')" :key="index">
+                            <li class="flex items-center px-2 py-1">
+                                <div x-id="['legend-checkbox']">
+                                    <label x-bind:for="$id('legend-checkbox')" class="flex items-center">
+                                        <input type="checkbox" 
+                                            :checked="isLayerVisible(layer)"
+                                            x-bind:id="$id('legend-checkbox')"
+                                            x-on:change="toggleLayer(layer)"
+                                            class="rounded border-slate-300 text-[#3369A1] shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                        <span class="ml-2 text-sm text-slate-600" x-text="layer.get('label')"></span>
+                                    </label>
+                                </div>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
                 <div x-cloak x-ref="popup" class="ol-popup ol-control transition">
                     <div class="p-2 m-0.5 bg-white rounded-md">
                         <div class="flex justify-between">
@@ -102,3 +127,71 @@
     </div>
 </div>
 @endsection
+
+<script>
+function mapData() {
+    return {
+        selectedLayer: null,
+        get sortedLayers() {
+            // Return layers sorted by label with "OpenStreetMap" first
+            return this.map.getAllLayers().reverse().sort((a, b) => {
+                if (a.get('label') === 'OpenStreetMap') return -1;
+                if (b.get('label') === 'OpenStreetMap') return 1;
+                return 0;
+            });
+        },
+        isLayerVisible(layer) {
+            // Check if the layer is the currently selected one or if it is the Monuments layer
+            return this.selectedLayer === layer || layer.get('label') === 'Monuments';
+        },
+        toggleLayer(layer) {
+            // Log the label of the layer being toggled
+            console.log(`Toggling layer: ${layer.get('label')}`);
+
+            // If the layer is "Monuments", do not change its visibility
+            if (layer.get('label') === 'Monuments') {
+                return;
+            }
+
+            // If a layer is selected and it's not the current one, hide the selected layer
+            if (this.selectedLayer && this.selectedLayer !== layer) {
+                this.selectedLayer.setVisible(false);
+            }
+
+            // Toggle the visibility of the clicked layer
+            if (this.selectedLayer === layer) {
+                this.selectedLayer = null;
+                layer.setVisible(false);
+            } else {
+                this.selectedLayer = layer;
+                layer.setVisible(true);
+            }
+        },
+        gotoFeature(feature) {
+            this.$refs.mapComponent.map.getView().animate({
+                center: feature.getGeometry().getCoordinates(),
+                zoom: 15,
+                duration: 500,
+            });
+        },
+        initializeLayers() {
+            // Ensure "Monuments" and "OpenStreetMap" layers are visible on initial load
+            this.map.getAllLayers().forEach((layer) => {
+                const label = layer.get('label');
+                if (label === 'Monuments' || label === 'OpenStreetMap') {
+                    layer.setVisible(true);
+                    if (label !== 'Monuments') {
+                        this.selectedLayer = layer;
+                    }
+                }
+            });
+        }
+    };
+}
+
+
+function truncate(text, length) {
+    return text.length > length ? text.substring(0, length) + '...' : text;
+}
+
+</script>
