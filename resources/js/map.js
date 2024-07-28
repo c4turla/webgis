@@ -15,8 +15,8 @@ import { defaults as defaultInteractions } from 'ol/interaction.js';
 
 const kategoriIcons = {
   1: '/assets/images/map/markerRed.png',
-  2: '/assets/images/map/markerRed.png',
-  3: '/assets/images/map/markerRed.png',
+  2: '/assets/images/map/markerYellow.png',
+  3: '/assets/images/map/markerGreen.png',
 };
 
 const customCoordinateFormat = (coordinate) => {
@@ -108,28 +108,87 @@ document.addEventListener('alpine:init', () => {
           let overlay = this.map.getOverlayById('info');
           overlay.setPosition(undefined);
           this.$refs.popupContent.innerHTML = '';
+      
           this.map.forEachFeatureAtPixel(event.pixel, (feature, layer) => {
-            if (layer.get('label') === 'Monuments' && feature) {
-              this.gotoFeature(feature);
-              let content =
-                '<h4 class="text-gray-500 font-bold">' +
-                feature.get('name') +
-                '</h4>';
-              content +=
-                '<img src="' +
-                feature.get('image') +
-                '" class="mt-2 w-full max-h-[200px] rounded-md shadow-md object-contain overflow-clip">';
-              this.$refs.popupContent.innerHTML = content;
-              setTimeout(() => {
-                overlay.setPosition(feature.getGeometry().getCoordinates());
-              }, 500);
-              return;
-            }
-          }, {
-            hitTolerance: 5,
-          });
+              if (layer.get('label') === 'Monuments' && feature) {
+                  let id = feature.get('id'); // Assuming the feature has an 'id' property
+                  const tokenMeta = document.querySelector('meta[name="csrf-token"]');
+                  const token = tokenMeta.getAttribute('content');
+                  fetch(`/detail-tempat/${id}`, {
+                    method: 'GET',
+                    headers: {
+                      'X-CSRF-TOKEN': token,
+                    }
+                  })
+                      .then(response => response.json())
+                      .then(data => {
+                            let images = data.foto.map(f => f.path);
+                            let imagesArray = JSON.stringify(images);
+                            let content =
+                            '<div class="bg-white shadow-xl rounded-lg flex flex-col">' +
+                              '<div x-data=\'imageSlider(' + imagesArray + ')\' class="w-full max-h-[200px] rounded-md shadow-md object-contain overflow-clip">' +
+                                '<div class="absolute right-5 top-10 z-10 rounded-full bg-gray-600 px-2 text-center text-sm text-white">' +
+                                  '<span x-text="currentIndex"></span>/<span x-text="images.length"></span>' +
+                                '</div>' +
+                                '<button @click="previous()" class="absolute left-5 top-1/4 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">' +
+                                  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">' +
+                                    '<path d="M14 7l-5 5 5 5V7z"/>' +
+                                    '<path d="M0 0h24v24H0z" fill="none"/>' +
+                                  '</svg>' +
+                                '</button>' +
+                                '<button @click="forward()" class="absolute right-5 top-1/4 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">' +
+                                  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">' +
+                                    '<path d="M10 17l5-5-5-5v10z"/>' +
+                                    '<path d="M0 0h24v24H0z" fill="none"/>' +
+                                  '</svg>' +
+                                '</button>' +
+                                '<div class="flex flex-col">' +
+                                  '<template x-for="(image, index) in images">' +
+                                    '<div x-show="currentIndex == index + 1" x-transition:enter="transition transform duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition transform duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">' +
+                                      '<img :src="image" alt="image" class="w-full max-h-[200px] rounded-md shadow-md object-cover overflow-clip " />' +
+                                    '</div>' +
+                                  '</template>' +
+                                '</div>' +
+                              '</div>' +
+                              '<div class="p-2 flex-col flex gap-2">' +
+                                '<p class="uppercase tracking-wide text-sm font-bold text-gray-700">' + feature.get('name') + '</p>' +
+                                '<p class="text-gray-700 text-sm flex flex-row gap-2 justify-start items-center">' +
+                                  '<svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' +
+                                    '<path d="M6.62 10.79a15.09 15.09 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 11.36 11.36 0 003.58.56 1 1 0 011 1v3.17a1 1 0 01-1 1A16 16 0 013 4a1 1 0 011-1h3.16a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.25 1.05z" fill="currentColor"/>' +
+                                  '</svg>' +
+                                  feature.get('kontak') + 
+                                '</p>' +
+                                '<p class="text-gray-700 text-sm flex flex-row gap-2 justify-start items-center">' +
+                                  '<svg width="16" height="16" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">' +
+                                    '<circle cx="50" cy="50" r="45" stroke="black" stroke-width="5" fill="none" />' +
+                                    '<line x1="50" y1="50" x2="50" y2="15" stroke="black" stroke-width="3" />' +
+                                  '</svg>' +
+                                  feature.get('waktu') +
+                                '</p>' +
+                              '</div>' +
+                              '<div class="p-2 border-t border-gray-300 bg-gray-100">' +
+                                '<div class="flex items-center pt-2">' +
+                                  '<div>' +
+                                    '<p class="text-sm text-gray-700 max-h-20 overflow-y-auto">' +
+                                      feature.get('deskripsi') +
+                                    '</p>' +
+                                  '</div>' +
+                                '</div>' +
+                              '</div>' +
+                            '</div>';
+                            this.$refs.popupContent.innerHTML = content;
+                            setTimeout(() => {
+                                overlay.setPosition(feature.getGeometry().getCoordinates());
+                            }, 500);
+                        })
+                        .catch(error => console.error('Error:', error));
+                    return;
+                }
+            }, {
+                hitTolerance: 5,
+            });
         });
-
+        
         this.map.on('loadstart', function () {
           this.getTargetElement().classList.add('spinner');
         });
@@ -159,6 +218,15 @@ document.addEventListener('alpine:init', () => {
             })
             .catch(error => console.error('Error fetching data:', error));
           });
+        });
+
+        this.map.on('pointermove', (event) => {
+          if (event.dragging) {
+            return;
+          }
+          const pixel = this.map.getEventPixel(event.originalEvent);
+          const hit = this.map.hasFeatureAtPixel(pixel);
+          this.map.getTarget().style.cursor = hit ? 'pointer' : '';
         });
       },
       updateFeatures(monuments) {
@@ -215,32 +283,50 @@ document.addEventListener('alpine:init', () => {
         overlay.setPosition(undefined);
         this.$refs.popupContent.innerHTML = '';
       },
+      
       styleFunction(feature, resolution) {
         const kategoriId = feature.get('kategori');
-        const iconUrl = kategoriIcons[kategoriId] || 'path/to/default-icon.png';
-
+        const iconUrl = kategoriIcons[kategoriId] || '/assets/images/map/markerRed.png';
+        let textColor;
+        switch (kategoriId) {
+          case 1:
+            textColor = 'rgba(255, 0, 0, 0.8)';
+            break;
+          case 2:
+            textColor = 'rgba(255, 255, 0, 0.8)';
+            break;
+          case 3:
+            textColor = 'rgba(0, 128, 0, 0.8)';
+            break;
+          default:
+            textColor = 'rgba(255, 255, 255, 0.8)';
+            break;
+        }
         return new Style({
           image: new Icon({
             src: iconUrl,
-            scale: 0.04, 
+            scale: 0.06,
             anchor: [0.5, 1],
           }),
           text: new Text({
             font: '12px sans-serif',
             textAlign: 'center',
             text: feature.get('name'),
-            offsetY: -55,
+            offsetY: -45,
             fill: new Fill({
-              color: '#ffffff', // White text color
+              color: textColor,
+            }),
+            stroke: new Stroke({
+              color: 'rgba(255, 255, 255, 0.7)',
+              width: 1,
             }),
             backgroundFill: new Fill({
-              color: 'rgba(255, 0, 0, 0.8)', // Red background with 80% opacity
+              color: 'rgba(255, 255, 255, 0)',
             }),
             backgroundStroke: new Stroke({
-              color: 'rgba(227, 227, 227, 1)',
+              color: 'rgba(255, 255, 255, 0)',
             }),
             padding: [5, 2, 2, 5],
-            radius: '20px', 
           }),
         });
       },
@@ -251,8 +337,8 @@ document.addEventListener('alpine:init', () => {
         }
         this.map.getView().animate({
           center: feature.getGeometry().getCoordinates(),
-          zoom: 15,
-          duration: 500,
+          zoom: 10,
+          duration: 1000,
         });
       },
       toggleFullScreen() {

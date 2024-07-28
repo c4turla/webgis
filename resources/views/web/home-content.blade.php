@@ -18,6 +18,9 @@
             </button> 
             <button x-on:click.prevent="download" title="download"  class="flex items-center justify-center p-2 bg-white border border-slate-300 rounded-md shadow-sm hover:bg-slate-100 focus:bg-slate-100">
                  <i data-lucide="download" class="h-5" style="color: black;"></i>
+            </button>   
+            <button x-on:click.prevent="findLocation" title="findLocation"  class="flex items-center justify-center p-2 bg-white border border-slate-300 rounded-md shadow-sm hover:bg-slate-100 focus:bg-slate-100">
+                 <i data-lucide="location" class="h-5" style="color: black;"></i>
             </button>  
             <div x-data="{ showModal: false }">
                 <!-- Button to open the modal -->
@@ -149,22 +152,20 @@
                         
                     </div>
                 </div>  
-                <div x-cloak x-ref="popup" class="ol-popup ol-control transition">
-                    <div class="p-2 m-0.5 bg-white rounded-md">
-                        <div class="flex justify-between">
-                            <h3 class="text-xs font-medium text-slate-400">Monument</h3>
+                <div x-cloak x-ref="popup" class="ol-popup ol-control transition  bg-slate-100 p-1">
+                    <div class="p-2 m-0.5 bg-slate-100 rounded-md">
+                        <div class="flex justify-end">
                             <a href="#"
                                 title="Close"
                                 x-on:click.prevent="closePopup"
                                 class="-mt-1 font-black text-slate-400 transition hover:text-slate-600 focus:text-slate-600 focus:outline-none">&times;</a>
                         </div>
-                        <div x-ref="popupContent" class="mt-2 overflow-y-auto min-h-[200px]"></div>
+                        <div x-ref="popupContent" class="overflow-y-auto min-h-[200px]"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+
 @endsection
 
 <script>
@@ -185,4 +186,24 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set default tab
         document.getElementById('tab-lokasi').click();
     });
+    
+</script>
+
+<script>
+  document.addEventListener("alpine:init", () => {
+    Alpine.data("imageSlider", (images) => ({
+      currentIndex: 1,
+      images: images,
+      previous() {
+        if (this.currentIndex > 1) {
+          this.currentIndex = this.currentIndex - 1;
+        }
+      },
+      forward() {
+        if (this.currentIndex < this.images.length) {
+          this.currentIndex = this.currentIndex + 1;
+        }
+      },
+    }));
+  });
 </script>

@@ -13,6 +13,7 @@ function set_active($route) {
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/filter-kategori/{id}', [HomeController::class, 'getLokasiByKategori']);
+Route::get('/detail-tempat/{id}', [HomeController::class, 'detail']);
 
 Route::group(['middleware'=>'auth'],function()
 {

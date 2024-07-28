@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\Tempat; 
+use Illuminate\Http\JsonResponse;
 use App\Models\Kategori; 
 
 class HomeController extends Controller
@@ -26,11 +27,13 @@ class HomeController extends Controller
                 return [
                     "type" => "Feature",
                     "properties" => [
+                        "id" => $tempat->id_tempat,
                         "name" => $tempat->nama_tempat,
                         "image" => $mainPhoto ? asset('storage/' . $mainPhoto->path) : null,
                         "kontak" => $tempat->kontak ? $tempat->kontak : " - ",
                         "waktu" => $tempat->jam_buka. " - " .$tempat->jam_tutup ,
                         "kategori" => $tempat->kategori_id ,
+                        "deskripsi" => $tempat->deskripsi ,
                     ],
                     "geometry" => [
                         "type" => "Point",
@@ -64,11 +67,13 @@ class HomeController extends Controller
                 return [
                     "type" => "Feature",
                     "properties" => [
+                        "id" => $tempat->id_tempat,
                         "name" => $tempat->nama_tempat,
                         "image" => $mainPhoto ? asset('storage/' . $mainPhoto->path) : null,
                         "kontak" => $tempat->kontak ? $tempat->kontak : " - ",
                         "waktu" => $tempat->jam_buka. " - " .$tempat->jam_tutup ,
                         "kategori" => $tempat->kategori_id ,
+                        "deskripsi" => $tempat->deskripsi ,
                     ],
                     "geometry" => [
                         "type" => "Point",
@@ -82,6 +87,17 @@ class HomeController extends Controller
         ];
     
         return response()->json($formattedData);
+    }
+    public function detail($id): JsonResponse
+    {
+        $wisata = Tempat::with('foto')->findOrFail($id);
+    
+        $wisata->foto->transform(function ($foto) {
+            $foto->path = asset('storage/' . $foto->path);
+            return $foto;
+        });
+
+        return response()->json($wisata->toArray());
     }
     
 }
