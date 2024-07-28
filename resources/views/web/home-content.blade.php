@@ -19,8 +19,8 @@
             <button x-on:click.prevent="download" title="download"  class="flex items-center justify-center p-2 bg-white border border-slate-300 rounded-md shadow-sm hover:bg-slate-100 focus:bg-slate-100">
                  <i data-lucide="download" class="h-5" style="color: black;"></i>
             </button>   
-            <button x-on:click.prevent="findLocation" title="findLocation"  class="flex items-center justify-center p-2 bg-white border border-slate-300 rounded-md shadow-sm hover:bg-slate-100 focus:bg-slate-100">
-                 <i data-lucide="location" class="h-5" style="color: black;"></i>
+            <button id="locate-button" title="locate-button"  class="flex items-center justify-center p-2 bg-white border border-slate-300 rounded-md shadow-sm hover:bg-slate-100 focus:bg-slate-100">
+                 <i data-lucide="map-pin" class="h-5" style="color: black;"></i>
             </button>  
             <div x-data="{ showModal: false }">
                 <!-- Button to open the modal -->

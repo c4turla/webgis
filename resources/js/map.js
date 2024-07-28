@@ -3,6 +3,8 @@ import View from 'ol/View.js';
 import TileLayer from 'ol/layer/Tile.js';
 import VectorSource from 'ol/source/Vector';
 import VectorLayer from 'ol/layer/Vector';
+import Feature from 'ol/Feature';
+import Point from 'ol/geom/Point';
 import OSM from 'ol/source/OSM.js';
 import GeoJSON from 'ol/format/GeoJSON';
 import Overlay from 'ol/Overlay.js';
@@ -12,10 +14,11 @@ import { FullScreen, defaults as defaultControls, OverviewMap } from 'ol/control
 import MousePosition from 'ol/control/MousePosition';
 import { fromLonLat, toLonLat } from 'ol/proj';
 import { defaults as defaultInteractions } from 'ol/interaction.js';
+import Geolocation from 'ol/Geolocation.js';
 
 const kategoriIcons = {
   1: '/assets/images/map/markerRed.png',
-  2: '/assets/images/map/markerYellow.png',
+  2: '/assets/images/map/markerBlue.png',
   3: '/assets/images/map/markerGreen.png',
 };
 
@@ -31,6 +34,7 @@ document.addEventListener('alpine:init', () => {
       legendOpened: false,
       map: null,
       activeLayer: 'OSM',
+      userLocationLayer: null, 
       initComponent(monuments) {
 
         this.features = new GeoJSON().readFeatures(monuments, {
@@ -73,6 +77,37 @@ document.addEventListener('alpine:init', () => {
           ],
           collapsed: true,
         });
+        
+        this.userLocationLayer = new VectorLayer({
+          source: new VectorSource(),
+          style: new Style({
+            image: new Icon({
+              src: '/assets/images/map/peopleHere.png',
+              scale: 0.06,
+              anchor: [0.5, 1],
+            }),
+            text: new Text({
+              font: '12px sans-serif',
+              textAlign: 'center',
+              text: 'Kamu Disini ... !',
+              offsetY: -45,
+              fill: new Fill({
+                color: 'rgba(255, 0, 0, 0.8)',
+              }),
+              stroke: new Stroke({
+                color: 'rgba(255, 255, 255, 0.7)',
+                width: 1,
+              }),
+              backgroundFill: new Fill({
+                color: 'rgba(255, 255, 255, 0)',
+              }),
+              backgroundStroke: new Stroke({
+                color: 'rgba(255, 255, 255, 0)',
+              }),
+              padding: [5, 2, 2, 5],
+            }),
+          }),
+        });
 
         this.map = new Map({
           controls: defaultControls().extend([
@@ -87,7 +122,7 @@ document.addEventListener('alpine:init', () => {
             }),
           ]),
           target: this.$refs.map,
-          layers: [osmLayer, arcgisLayer, xyzLayer, this.vectorLayer],
+          layers: [osmLayer, arcgisLayer, xyzLayer, this.vectorLayer, this.userLocationLayer],
           view: new View({
             projection: 'EPSG:3857',
             center: fromLonLat([122.0591579, -3.9084353]),
@@ -103,6 +138,34 @@ document.addEventListener('alpine:init', () => {
           interactions: defaultInteractions(),
         });
 
+        // Initialize Geolocation
+        this.geolocation = new Geolocation({
+          tracking: false, // Initially not tracking
+          trackingOptions: {
+            enableHighAccuracy: true,
+          },
+          projection: this.map.getView().getProjection(),
+        });
+
+        // Update user location marker position
+        this.geolocation.on('change:position', () => {
+          const coordinates = this.geolocation.getPosition();
+          if (coordinates) {
+            const userLocationFeature = new Feature({
+              geometry: new Point(coordinates),
+            });
+            this.userLocationLayer.getSource().clear();
+            this.userLocationLayer.getSource().addFeature(userLocationFeature);
+            this.map.getView().setCenter(coordinates);
+            this.map.getView().setZoom(14);
+          }
+        });
+
+        // Add event listener for the button
+        document.getElementById('locate-button').addEventListener('click', () => {
+          this.geolocation.setTracking(true); // Start tracking when button is clicked
+        });
+        
         this.map.on('singleclick', (event) => {
           if (event.dragging) return;
           let overlay = this.map.getOverlayById('info');
@@ -283,7 +346,9 @@ document.addEventListener('alpine:init', () => {
         overlay.setPosition(undefined);
         this.$refs.popupContent.innerHTML = '';
       },
-      
+      getLocationMe(){  
+        this.geolocation.setTracking(true); 
+      },
       styleFunction(feature, resolution) {
         const kategoriId = feature.get('kategori');
         const iconUrl = kategoriIcons[kategoriId] || '/assets/images/map/markerRed.png';
@@ -293,7 +358,7 @@ document.addEventListener('alpine:init', () => {
             textColor = 'rgba(255, 0, 0, 0.8)';
             break;
           case 2:
-            textColor = 'rgba(255, 255, 0, 0.8)';
+            textColor = 'rgba(0, 0, 255, 0.8)';
             break;
           case 3:
             textColor = 'rgba(0, 128, 0, 0.8)';
